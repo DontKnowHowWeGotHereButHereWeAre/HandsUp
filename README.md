@@ -26,15 +26,15 @@ The following **additional** features are implemented:
 
 Login Screen:
 
-<img src='https://i.imgur.com/8WApJgN.png' title='Login Screen' width='' alt='Video Walkthrough' height='1000' />
+<img src='https://i.imgur.com/8WApJgN.png' title='Login Screen' width='' alt='Video Walkthrough' height='500' />
 
 Question and Detail Question Views:
 
-<img src='https://i.imgur.com/9zbYGM1.png' title='Question and Detail Question View' width='' alt='Video Walkthrough' height='1000'/>
+<img src='https://i.imgur.com/9zbYGM1.png' title='Question and Detail Question View' width='' alt='Video Walkthrough' height='500'/>
 
 Profile and Compose Question Views:
 
-<img src='https://i.imgur.com/G7FcMed.png' title='Profile and Compose Views' width='' alt='Video Walkthrough' height='1000' />
+<img src='https://i.imgur.com/G7FcMed.png' title='Profile and Compose Views' width='' alt='Video Walkthrough' height='500' />
 
 
 ## Video Walkthrough
