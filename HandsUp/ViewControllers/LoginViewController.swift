@@ -7,29 +7,46 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameField: UITextField!
     
     @IBOutlet weak var passwordField: UITextField!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    
     
     @IBAction func didTapNewUser(_ sender: Any) {
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: ButtonTapped to Sign Up
+    @IBAction func onSignUp(_sender: Any){
+        let newUser = PFUser();
+        
+        newUser.username = usernameField.text
+        newUser.password = passwordField.text
+        
+        newUser.signUpInBackground { (success: Bool, error: Error?) in
+            if success{
+                print("User Signed Up Successfully!");
+                
+                //TODO: Segue into the HomeView
+                
+            }else{
+                print("error signing up: \(error!.localizedDescription)")
+                
+                if error?._code == 202{
+                    print("Username is taken")
+                }
+            }
+        }
     }
-    */
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
 
 }
