@@ -202,7 +202,7 @@
         <!--New Post-->
         <scene sceneID="JhM-sU-MeX">
             <objects>
-                <viewController id="Riu-aB-UaC" sceneMemberID="viewController">
+                <viewController id="Riu-aB-UaC" customClass="NewPostViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NM3-Aa-jo6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -18,6 +18,7 @@
 		4937D1A52173F3220060A059 /* HandsUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4937D1A42173F3220060A059 /* HandsUpTests.swift */; };
 		4937D1B02173F3220060A059 /* HandsUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4937D1AF2173F3220060A059 /* HandsUpUITests.swift */; };
 		498D3090217B92E900D33BCA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D308F217B92E900D33BCA /* ProfileViewController.swift */; };
+		498D3092217B941100D33BCA /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3091217B941100D33BCA /* NewPostViewController.swift */; };
 		5FE84AC35136A649597EC1AE /* Pods_HandsUpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64FBD22BFE81FDFF0F68582 /* Pods_HandsUpTests.framework */; };
 		C887604CC2EDA2B0E1B7B5AD /* Pods_HandsUpUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758BE22E95EC1EED1474995E /* Pods_HandsUpUITests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		4937D1AF2173F3220060A059 /* HandsUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsUpUITests.swift; sourceTree = "<group>"; };
 		4937D1B12173F3220060A059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		498D308F217B92E900D33BCA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		498D3091217B941100D33BCA /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		570A7FFDFED2E6D16E944CA9 /* Pods-HandsUpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HandsUpTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HandsUpTests/Pods-HandsUpTests.release.xcconfig"; sourceTree = "<group>"; };
 		5DEC9AF2DB282940BABF1FB3 /* Pods-HandsUpUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HandsUpUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HandsUpUITests/Pods-HandsUpUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		63A3C86F237F8B05D0F2D7BC /* Pods-HandsUpTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HandsUpTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HandsUpTests/Pods-HandsUpTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				4935C2942177FD17001FE9FD /* SignUpViewController.swift */,
 				490D440D217B8088008E328B /* HomeViewController.swift */,
 				498D308F217B92E900D33BCA /* ProfileViewController.swift */,
+				498D3091217B941100D33BCA /* NewPostViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				498D3090217B92E900D33BCA /* ProfileViewController.swift in Sources */,
 				4937D1902173F31F0060A059 /* AppDelegate.swift in Sources */,
 				490D440E217B8088008E328B /* HomeViewController.swift in Sources */,
+				498D3092217B941100D33BCA /* NewPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
