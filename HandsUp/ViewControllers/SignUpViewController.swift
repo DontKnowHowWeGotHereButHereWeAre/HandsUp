@@ -36,7 +36,7 @@ class SignUpViewController: UIViewController {
             } else {
                 print("User registered successfully")
                 // TODO: add segue to home feed
-//                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                self.performSegue(withIdentifier: "signUpSegue", sender: nil)
             }
         }
         print(newUser)

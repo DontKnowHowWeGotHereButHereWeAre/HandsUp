@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class LoginViewController: UIViewController {
+class SignInViewController: UIViewController {
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
                 //Account for error 202
             } else {
                 print("User login successful")
-//                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                self.performSegue(withIdentifier: "signInSegue", sender: nil)
             }
         }
     }

@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2061D344406F9E0C421313C2 /* Pods_HandsUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E1ABD326A91C3A6740D63B /* Pods_HandsUp.framework */; };
-		4935C2922177FACA001FE9FD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C2912177FACA001FE9FD /* LoginViewController.swift */; };
+		490D440E217B8088008E328B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D440D217B8088008E328B /* HomeViewController.swift */; };
+		4935C2922177FACA001FE9FD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C2912177FACA001FE9FD /* SignInViewController.swift */; };
 		4935C2952177FD17001FE9FD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C2942177FD17001FE9FD /* SignUpViewController.swift */; };
 		4937D1902173F31F0060A059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4937D18F2173F31F0060A059 /* AppDelegate.swift */; };
 		4937D1952173F31F0060A059 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4937D1932173F31F0060A059 /* Main.storyboard */; };
@@ -40,7 +41,8 @@
 /* Begin PBXFileReference section */
 		02874743C42BEE0C5510F253 /* Pods-HandsUpUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HandsUpUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HandsUpUITests/Pods-HandsUpUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3127C01799A781EBC786FC6B /* Pods-HandsUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HandsUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HandsUp/Pods-HandsUp.release.xcconfig"; sourceTree = "<group>"; };
-		4935C2912177FACA001FE9FD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		490D440D217B8088008E328B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4935C2912177FACA001FE9FD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		4935C2942177FD17001FE9FD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4937D18C2173F31F0060A059 /* HandsUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandsUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4937D18F2173F31F0060A059 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,8 +96,9 @@
 		4935C2902177FAAD001FE9FD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4935C2912177FACA001FE9FD /* LoginViewController.swift */,
+				4935C2912177FACA001FE9FD /* SignInViewController.swift */,
 				4935C2942177FD17001FE9FD /* SignUpViewController.swift */,
+				490D440D217B8088008E328B /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -412,9 +415,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4935C2922177FACA001FE9FD /* LoginViewController.swift in Sources */,
+				4935C2922177FACA001FE9FD /* SignInViewController.swift in Sources */,
 				4935C2952177FD17001FE9FD /* SignUpViewController.swift in Sources */,
 				4937D1902173F31F0060A059 /* AppDelegate.swift in Sources */,
+				490D440E217B8088008E328B /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
