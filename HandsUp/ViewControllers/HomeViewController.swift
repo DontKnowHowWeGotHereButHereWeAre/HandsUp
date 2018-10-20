@@ -7,24 +7,77 @@
 //
 
 import UIKit
+import Parse
 
-class HomeViewController: UIViewController {
+
+
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
+    var posts: [PFObject] = []
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
+        let post = posts[indexPath.row]
+        
+        cell.TitleLabel.text = post["title"] as? String
+        cell.TopAnswerLabel.text = "My milkshake brings all the cows to the yard"
+        cell.RaisesCountLabel.text = post["likesCount"] as? String
+        cell.CommentsCountLabel.text = post["commentsCount"] as? String
+        
+        return cell
+        
+        
+        
+    }
+    
+    func fetchData(){
+        let query = PFQuery(className: "Post")
+        
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        query.limit = 20
+        
+        //fetch Data
+        query.findObjectsInBackground(block: { (fetchedPosts:[PFObject]?, error: Error?) in
+            if let fetchedPosts = fetchedPosts{
+                self.posts = fetchedPosts as! [Post]
+            }else{
+                
+                if let error = error{
+                    print(error.localizedDescription)
+                }
+            }
+            self.tableView.reloadData()
+        })
+        
+    
+    }
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //tableView Defaults
+        tableView.dataSource = self;
+        tableView.delegate = self;
+        
+//        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.estimatedRowHeight = 120
+        
+        self.fetchData()
+        
+        
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
