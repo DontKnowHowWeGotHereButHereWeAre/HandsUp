@@ -32,6 +32,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TF9-gy-F0D">
                                 <rect key="frame" x="164" y="368.5" width="47" height="30"/>
                                 <state key="normal" title="Sign in"/>
+                                <connections>
+                                    <action selector="onSignIn:" destination="f9o-bR-ySc" eventType="touchUpInside" id="9Yo-DX-ie0"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HandsUp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uee-Wk-It6">
                                 <rect key="frame" x="127.5" y="203.5" width="120" height="37"/>
@@ -43,7 +46,6 @@
                                 <rect key="frame" x="121" y="406.5" width="133" height="30"/>
                                 <state key="normal" title="New user? Sign up!"/>
                                 <connections>
-                                    <action selector="didTapNewUser:" destination="f9o-bR-ySc" eventType="touchUpInside" id="41w-KM-5O7"/>
                                     <segue destination="3yt-2r-xUn" kind="show" id="LJt-LZ-QfT"/>
                                 </connections>
                             </button>
@@ -67,7 +69,7 @@
                     </view>
                     <connections>
                         <outlet property="passwordField" destination="hbM-Xb-yti" id="bfy-xb-N3U"/>
-                        <outlet property="usernameLabel" destination="W2H-JQ-zAI" id="6I2-s7-CSd"/>
+                        <outlet property="usernameField" destination="W2H-JQ-zAI" id="LHR-OO-eDn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ln0-Dh-fQH" userLabel="First Responder" sceneMemberID="firstResponder"/>

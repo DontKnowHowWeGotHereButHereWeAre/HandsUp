@@ -26,13 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "handsup"
                 configuration.clientKey = "dlfajsdlfkajslfkjasdlkfjskld8093840dda"
-                configuration.server = "http://yourappname.herokuapp.com/parse"
+                configuration.server = "https://hands-up.herokuapp.com/parse"
             })
         )
-        
-        
-        
-        
         return true
     }
 

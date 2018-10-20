@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class SignUpViewController: UIViewController {
 
@@ -21,6 +22,24 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func didTapSignUp(_ sender: Any) {
+        let newUser = PFUser()
+        newUser.username = usernameField.text
+        newUser.password = passwordField.text
+        let role = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)
+        newUser.add(role ?? "student", forKey: "role")
+
+        newUser.signUpInBackground{
+            (success: Bool, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+                // TODO: account for error 202
+            } else {
+                print("User registered successfully")
+                // TODO: add segue to home feed
+//                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }
+        }
+        print(newUser)
     }
     
     /*

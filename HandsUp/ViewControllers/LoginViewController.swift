@@ -12,36 +12,23 @@ import Parse
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameField: UITextField!
-    
     @IBOutlet weak var passwordField: UITextField!
-    
-    
-    @IBAction func didTapNewUser(_ sender: Any) {
-    }
-    
-    //MARK: ButtonTapped to Sign Up
-    @IBAction func onSignUp(_sender: Any){
-        let newUser = PFUser();
+
+    // MARK: button tapped to sign in
+    @IBAction func onSignIn(_ sender: Any) {
+        let username = usernameField.text ?? ""
+        let password = passwordField.text ?? ""
         
-        newUser.username = usernameField.text
-        newUser.password = passwordField.text
-        
-        newUser.signUpInBackground { (success: Bool, error: Error?) in
-            if success{
-                print("User Signed Up Successfully!");
-                
-                //TODO: Segue into the HomeView
-                
-            }else{
-                print("error signing up: \(error!.localizedDescription)")
-                
-                if error?._code == 202{
-                    print("Username is taken")
-                }
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+                //Account for error 202
+            } else {
+                print("User login successful")
+//                self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
