@@ -29,9 +29,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://hands-up.herokuapp.com/parse"
             })
         )
+        
+        //Persistent User
+        NotificationCenter.default.addObserver(forName: Notification.Name("didLogout"), object: nil, queue: OperationQueue.main) { (Notification) in
+            print("Logout notification received")
+            self.logOut()
+        }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if PFUser.current() != nil {
+            _ = UIStoryboard(name: "Main", bundle: nil)
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+        }
+        
         return true
     }
 
+    // Logout for persistent user
+    func logOut() {
+        //Logout the current user
+        PFUser.logOutInBackground(block: { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+                
+            } else {
+                print("logout successfull")
+                //Load and show the login screen
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let signInViewController = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+                self.window?.rootViewController = signInViewController
+            }
+            
+        })
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

@@ -12,7 +12,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="DVg-sM-HDl">
             <objects>
-                <viewController id="f9o-bR-ySc" customClass="SignInViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="f9o-bR-ySc" customClass="SignInViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jFc-yj-PVg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,7 +173,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="uw7-ee-nPm"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="81U-LS-Osi"/>
+                    <navigationItem key="navigationItem" title="Profile" id="81U-LS-Osi">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="ao3-pt-lT6">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2JS-RA-dYr">
+                                <rect key="frame" x="16" y="7" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="0cI-Io-wIW" eventType="touchUpInside" id="W5T-0t-3NV"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="II3-yS-G2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -182,7 +193,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="p7e-6o-q7t">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jf8-0w-Kau" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="jf8-0w-Kau" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jev-MT-UTP">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -274,6 +285,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GaM-TV-j1H"/>
+        <segue reference="BSE-RQ-yBM"/>
     </inferredMetricsTieBreakers>
 </document>
