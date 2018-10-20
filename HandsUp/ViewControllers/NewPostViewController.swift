@@ -10,13 +10,26 @@ import UIKit
 
 class NewPostViewController: UIViewController {
 
+    @IBOutlet weak var questionField: UITextView!
+    @IBOutlet weak var titleField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func didTapSubmit(_ sender: Any) {
+        Post.postQuestion(title: titleField.text, withQuestion: questionField.text) { (success, error) in
+            if let error = error{
+                print(error.localizedDescription)
+            } else {
+                print("post successful")
+                self.performSegue(withIdentifier: "uploadedSegue", sender: nil)
+            }
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 
