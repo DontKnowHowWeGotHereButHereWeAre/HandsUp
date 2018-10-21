@@ -9,6 +9,7 @@ Time spent: **x** hours spent in total
 The following **required** functionality is completed:
 - [x] User can log in and sign up
 - [x] User can annonomously post question by creating a new thread
+- [x] User can view question details 
 - [ ] User can post answer to question by responding to thread
 - [ ] User can view their questions and answers (view their threads)
 - [ ] User can view their class threads
