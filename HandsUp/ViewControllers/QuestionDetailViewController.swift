@@ -9,7 +9,6 @@
 import UIKit
 import Parse
 
-// NOTE: THIS DOESNT WORK
 class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
@@ -32,6 +31,7 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
 
         // Do any additional setup after loading the view.
     }

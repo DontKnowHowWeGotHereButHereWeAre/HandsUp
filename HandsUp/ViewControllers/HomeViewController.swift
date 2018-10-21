@@ -37,16 +37,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
     }
-    // TODO: Fix this 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let cell =  sender as! UITableViewCell
-//        if let indexPath = tableView.indexPath(for: cell){
-//            let post = posts[indexPath.row]
-//            let questionDetailViewController = segue.destination as! QuestionDetailViewController
-//            questionDetailViewController.question = post
-//        }
-//    }
-//
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell =  sender as! UITableViewCell
+        if let indexPath = tableView.indexPath(for: cell){
+            let post = posts[indexPath.row]
+            let questionDetailViewController = segue.destination as! QuestionDetailViewController
+            questionDetailViewController.question = post
+        }
+    }
+
     func fetchData(){
         let query = PFQuery(className: "Post")
         

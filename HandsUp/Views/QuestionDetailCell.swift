@@ -22,8 +22,22 @@ class QuestionDetailCell: UITableViewCell {
         didSet{
             if let question = question{
                 questionLabel.text? = question["title"] as? String ?? ""
+                detailLabel.text? = question["question"] as? String ?? ""
                 raiseCountLabel.text? = "🤚" + (question["likesCount"] as? String ?? "0")
                 answersCountLabel.text? = "💬" + (question["commentsCount"] as? String ?? "0")
+                if question.object(forKey: "author") != nil{
+                    let author = question.object(forKey: "author") as! PFUser
+                    print(author)
+                    if let anonymous = author.value(forKey: "anonymous") as? Bool{
+                        print(anonymous)
+                        if anonymous{
+                            authorLabel.text = "Anonymous werewolf 🐺"
+                        }
+                        else{
+                            authorLabel.text = author.username
+                        }
+                    }
+                }
             }
             print(question)
         }

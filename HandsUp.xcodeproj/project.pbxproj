@@ -161,8 +161,8 @@
 				4935C2902177FAAD001FE9FD /* ViewControllers */,
 				4937D18F2173F31F0060A059 /* AppDelegate.swift */,
 				4937D1932173F31F0060A059 /* Main.storyboard */,
-				4937D1962173F3220060A059 /* Assets.xcassets */,
 				4937D1982173F3220060A059 /* LaunchScreen.storyboard */,
+				4937D1962173F3220060A059 /* Assets.xcassets */,
 				4937D19B2173F3220060A059 /* Info.plist */,
 			);
 			path = HandsUp;

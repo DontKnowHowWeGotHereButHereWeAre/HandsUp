@@ -21,7 +21,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         newUser.username = usernameField.text
         newUser.password = passwordField.text
         let role = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)
-        newUser.add(role ?? "student", forKey: "role")
+        //Use setValue instead of add for keys with single values
+        newUser.setValue(role ?? "Student", forKey: "role")
+        newUser.setValue(true, forKey: "anonymous")
 
         newUser.signUpInBackground{
             (success: Bool, error: Error?) in
