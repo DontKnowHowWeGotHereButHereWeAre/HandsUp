@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import Parse
 
+// I am trying to make a mdoel for our posts, but I have not finished this
+// Right now, this is unused.
 class Post: PFObject, PFSubclassing {
     @NSManaged var author: PFUser
     @NSManaged var title: String
