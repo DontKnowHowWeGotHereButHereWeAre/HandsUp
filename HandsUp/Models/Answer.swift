@@ -14,7 +14,7 @@ import Parse
 class Answer: PFObject, PFSubclassing {
     @NSManaged var postID: String   // Will be the same as the postID that the answer is answering to
     @NSManaged var author: PFUser
-    @NSManaged var response: String //This is the actuall response the user typed out.
+    @NSManaged var response: String //This is the actual response the user typed out.
     @NSManaged var rating: Int      // Rating will start as 0 and will be a 10 point scale.
     
     

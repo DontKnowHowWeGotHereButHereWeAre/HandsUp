@@ -9,17 +9,12 @@
 import UIKit
 import Parse
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
     @IBAction func didTapSignUp(_ sender: Any) {
         let newUser = PFUser()
@@ -40,6 +35,25 @@ class SignUpViewController: UIViewController {
             }
         }
         print(newUser)
+    }
+    
+    //This dismisses the keyboard when hitting the 'done' button
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        return true
+    }
+    
+    //This dismisses the keyboard when touching out of textField
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        usernameField.delegate = self
+        passwordField.delegate = self
+        // Do any additional setup after loading the view.
     }
     
     /*

@@ -29,9 +29,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.TitleLabel.text = post["title"] as? String
         cell.TopAnswerLabel.text = "My milkshake brings all the cows to the yard"
-        cell.RaisesCountLabel.text = post["likesCount"] as? String
-        cell.CommentsCountLabel.text = post["commentsCount"] as? String
-        
+        cell.RaisesCountLabel.text = "🤚" + (post["likesCount"] as? String ?? "0")
+        cell.CommentsCountLabel.text = "💬" + (post["commentsCount"] as? String ?? "0")
+
         return cell
         
         

@@ -7,6 +7,7 @@ target 'HandsUp' do
 
   # Pods for HandsUp
   pod 'Parse'
+  pod 'RSKPlaceholderTextView'
 
   target 'HandsUpTests' do
     inherit! :search_paths
