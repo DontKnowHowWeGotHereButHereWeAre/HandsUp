@@ -42,7 +42,7 @@ Profile and Compose Question Views:
 
 Here's a current walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/zl0HwHb.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/9UsHtBf.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
