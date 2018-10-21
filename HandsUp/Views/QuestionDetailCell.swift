@@ -25,6 +25,8 @@ class QuestionDetailCell: UITableViewCell {
                 detailLabel.text? = question["question"] as? String ?? ""
                 raiseCountLabel.text? = "🤚" + (question["likesCount"] as? String ?? "0")
                 answersCountLabel.text? = "💬" + (question["commentsCount"] as? String ?? "0")
+                
+                // MARK: checking the anonimity of a post
                 if question.object(forKey: "author") != nil{
                     let author = question.object(forKey: "author") as! PFUser
                     print(author)
@@ -38,9 +40,33 @@ class QuestionDetailCell: UITableViewCell {
                         }
                     }
                 }
+                
+                // MARK: formated date label
+                let createdAt = question.createdAt!
+                dateLabel.text = " · " + formatTime(createdAt: createdAt)
+                
+                print(question)
             }
-            print(question)
         }
+    }
+    
+    // MARK: date formatter returns string of formatted date
+    func formatTime(createdAt: Date) -> String{
+        // Configure the input format to parse the date string
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        //Create String from created_at date
+        let createdAtString = formatter.string(from: createdAt)
+        
+        // Convert String to Date
+        let date = formatter.date(from: createdAtString)!
+        // Configure output format
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        // Convert Date to String
+        return formatter.string(from: date)
+
     }
     
     override func awakeFromNib() {
