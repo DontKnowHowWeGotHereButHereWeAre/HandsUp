@@ -249,6 +249,49 @@
                                             <outlet property="raiseCountLabel" destination="KmR-Sh-Z3c" id="IUq-cm-g2G"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="answerDetailCell" rowHeight="143" id="huc-lt-vJ7" customClass="QuestionDetailCell" customModule="HandsUp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="248" width="375" height="143"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="huc-lt-vJ7" id="oar-iP-UnA" customClass="AnswerCell" customModule="HandsUp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="142.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anonymous" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CN0-Eh-KXi">
+                                                    <rect key="frame" x="15" y="11" width="85" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now this looks like a job for me, so everybody just follow me." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybP-r1-ATk">
+                                                    <rect key="frame" x="15" y="37" width="345" height="41"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pin-PC-RKH">
+                                                    <rect key="frame" x="15" y="86" width="34" height="30"/>
+                                                    <state key="normal" title="✋ 7"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" · 10/20/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoz-GT-AmL">
+                                                    <rect key="frame" x="100" y="11" width="90" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Eoz-GT-AmL" firstAttribute="leading" secondItem="CN0-Eh-KXi" secondAttribute="trailing" id="0r4-cC-uUn"/>
+                                                <constraint firstItem="ybP-r1-ATk" firstAttribute="trailing" secondItem="oar-iP-UnA" secondAttribute="trailingMargin" id="IJR-Dz-XX8"/>
+                                                <constraint firstItem="CN0-Eh-KXi" firstAttribute="leading" secondItem="oar-iP-UnA" secondAttribute="leadingMargin" id="Kvu-gs-PNT"/>
+                                                <constraint firstItem="pin-PC-RKH" firstAttribute="top" secondItem="ybP-r1-ATk" secondAttribute="bottom" constant="8" id="QNw-66-o6e"/>
+                                                <constraint firstItem="Eoz-GT-AmL" firstAttribute="top" secondItem="oar-iP-UnA" secondAttribute="topMargin" id="bkt-9Z-wLV"/>
+                                                <constraint firstItem="CN0-Eh-KXi" firstAttribute="top" secondItem="oar-iP-UnA" secondAttribute="topMargin" id="gJk-qj-QGl"/>
+                                                <constraint firstItem="pin-PC-RKH" firstAttribute="leading" secondItem="oar-iP-UnA" secondAttribute="leadingMargin" id="jhs-xB-Va2"/>
+                                                <constraint firstItem="ybP-r1-ATk" firstAttribute="top" secondItem="CN0-Eh-KXi" secondAttribute="bottom" constant="8" id="pxe-aX-ae2"/>
+                                                <constraint firstItem="ybP-r1-ATk" firstAttribute="leading" secondItem="oar-iP-UnA" secondAttribute="leadingMargin" id="yXX-zx-Esf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
