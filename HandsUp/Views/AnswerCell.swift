@@ -10,7 +10,16 @@ import UIKit
 
 class AnswerCell: UITableViewCell {
 
+    @IBOutlet weak var raiseYourHandOutlet: UIButton!   //Making an outlet in order to be able to update the raise count.
     
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var answerLabel: UILabel!
+    
+    @IBAction func raiseYourHand(_ sender: Any) {
+        
+        
+    }
     
     
     

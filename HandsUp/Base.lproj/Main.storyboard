@@ -249,10 +249,10 @@
                                             <outlet property="raiseCountLabel" destination="KmR-Sh-Z3c" id="IUq-cm-g2G"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="answerDetailCell" rowHeight="143" id="huc-lt-vJ7" customClass="QuestionDetailCell" customModule="HandsUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="answerCell" rowHeight="143" id="huc-lt-vJ7" customClass="AnswerCell" customModule="HandsUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="248" width="375" height="143"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="huc-lt-vJ7" id="oar-iP-UnA" customClass="AnswerCell" customModule="HandsUp" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="huc-lt-vJ7" id="oar-iP-UnA">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="142.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -271,6 +271,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pin-PC-RKH">
                                                     <rect key="frame" x="15" y="86" width="34" height="30"/>
                                                     <state key="normal" title="✋ 7"/>
+                                                    <connections>
+                                                        <action selector="raiseYourHand:" destination="huc-lt-vJ7" eventType="touchUpInside" id="uMp-b6-c1v"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" · 10/20/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoz-GT-AmL">
                                                     <rect key="frame" x="100" y="11" width="90" height="18"/>
@@ -291,6 +294,12 @@
                                                 <constraint firstItem="ybP-r1-ATk" firstAttribute="leading" secondItem="oar-iP-UnA" secondAttribute="leadingMargin" id="yXX-zx-Esf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="answerLabel" destination="ybP-r1-ATk" id="hwn-FZ-UoH"/>
+                                            <outlet property="dateLabel" destination="Eoz-GT-AmL" id="6Mc-lL-9E2"/>
+                                            <outlet property="raiseYourHandOutlet" destination="pin-PC-RKH" id="MON-R7-i1v"/>
+                                            <outlet property="usernameLabel" destination="CN0-Eh-KXi" id="zD9-BB-Qqu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
