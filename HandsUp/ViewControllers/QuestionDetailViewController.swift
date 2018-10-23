@@ -12,7 +12,7 @@ import Parse
 class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var question: PFObject?
+    var question: Post?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1;
@@ -26,6 +26,13 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "answerCell") as!  AnswerCell
             return cell
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "responseSegue" {
+            let responseViewController = segue.destination as! ResponseViewController
+            responseViewController.parentQuestion = question
         }
     }
     

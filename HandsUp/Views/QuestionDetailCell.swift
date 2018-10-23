@@ -18,55 +18,29 @@ class QuestionDetailCell: UITableViewCell {
     @IBOutlet weak var raiseCountLabel: UILabel!
     @IBOutlet weak var answersCountLabel: UILabel!
     
-    var question: PFObject?{
+    var author: PFUser?
+    
+    var question: Post?{
         didSet{
             if let question = question{
-                questionLabel.text? = question["title"] as? String ?? ""
-                detailLabel.text? = question["question"] as? String ?? ""
-                raiseCountLabel.text? = "🤚" + (question["likesCount"] as? String ?? "0")
-                answersCountLabel.text? = "💬" + (question["commentsCount"] as? String ?? "0")
+                questionLabel.text? = question.title
+                detailLabel.text? = question.question
+                raiseCountLabel.text? = "🤚" + String(question.likesCount)
+                answersCountLabel.text? = "💬" + String(question.commentsCount)
                 
                 // MARK: checking the anonimity of a post
-                if question.object(forKey: "author") != nil{
-                    let author = question.object(forKey: "author") as! PFUser
-                    print(author)
-                    if let anonymous = author.value(forKey: "anonymous") as? Bool{
-                        print(anonymous)
-                        if anonymous{
-                            authorLabel.text = "Anonymous werewolf 🐺"
-                        }
-                        else{
-                            authorLabel.text = author.username
-                        }
-                    }
+                author = question.author
+                if question.anonymity{
+                    authorLabel.text = "Anonymous werewolf 🐺"
+                } else {
+                    authorLabel.text = author?.username
                 }
                 
                 // MARK: formated date label
-                let createdAt = question.createdAt!
-                dateLabel.text = " · " + formatTime(createdAt: createdAt)
-                
+                dateLabel.text = " · " + question.dateCreated
                 print(question)
             }
         }
-    }
-    
-    // MARK: date formatter returns string of formatted date
-    func formatTime(createdAt: Date) -> String{
-        // Configure the input format to parse the date string
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        //Create String from created_at date
-        let createdAtString = formatter.string(from: createdAt)
-        
-        // Convert String to Date
-        let date = formatter.date(from: createdAtString)!
-        // Configure output format
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
-        // Convert Date to String
-        return formatter.string(from: date)
-
     }
     
     override func awakeFromNib() {

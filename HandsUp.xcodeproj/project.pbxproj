@@ -22,6 +22,7 @@
 		498D3090217B92E900D33BCA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D308F217B92E900D33BCA /* ProfileViewController.swift */; };
 		498D3092217B941100D33BCA /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3091217B941100D33BCA /* NewPostViewController.swift */; };
 		498D3094217B989D00D33BCA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3093217B989D00D33BCA /* Post.swift */; };
+		49A509B7217EAA39005D62F7 /* ResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A509B6217EAA39005D62F7 /* ResponseViewController.swift */; };
 		49EEBB6D217C121900215DCF /* QuestionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EEBB6C217C121900215DCF /* QuestionDetailViewController.swift */; };
 		49EEBB6F217C155C00215DCF /* QuestionDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EEBB6E217C155C00215DCF /* QuestionDetailCell.swift */; };
 		49EEBB71217C195900215DCF /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EEBB70217C195900215DCF /* AnswerCell.swift */; };
@@ -69,6 +70,7 @@
 		498D308F217B92E900D33BCA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		498D3091217B941100D33BCA /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		498D3093217B989D00D33BCA /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		49A509B6217EAA39005D62F7 /* ResponseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseViewController.swift; sourceTree = "<group>"; };
 		49EEBB6C217C121900215DCF /* QuestionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailViewController.swift; sourceTree = "<group>"; };
 		49EEBB6E217C155C00215DCF /* QuestionDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailCell.swift; sourceTree = "<group>"; };
 		49EEBB70217C195900215DCF /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				49EEBB6C217C121900215DCF /* QuestionDetailViewController.swift */,
 				498D3091217B941100D33BCA /* NewPostViewController.swift */,
 				498D308F217B92E900D33BCA /* ProfileViewController.swift */,
+				49A509B6217EAA39005D62F7 /* ResponseViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -287,7 +290,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = NSHWAHBWAH;
+				ORGANIZATIONNAME = claudia;
 				TargetAttributes = {
 					4937D18B2173F31F0060A059 = {
 						CreatedOnToolsVersion = 10.0;
@@ -458,6 +461,7 @@
 				4937D1902173F31F0060A059 /* AppDelegate.swift in Sources */,
 				49EEBB6D217C121900215DCF /* QuestionDetailViewController.swift in Sources */,
 				490D440E217B8088008E328B /* HomeViewController.swift in Sources */,
+				49A509B7217EAA39005D62F7 /* ResponseViewController.swift in Sources */,
 				498D3094217B989D00D33BCA /* Post.swift in Sources */,
 				498D3092217B941100D33BCA /* NewPostViewController.swift in Sources */,
 				31DB3C16217BC203001CA8C8 /* PostCell.swift in Sources */,
@@ -637,13 +641,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QYGH248NY2;
 				INFOPLIST_FILE = HandsUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = NSHWAHBWAH.HandsUp;
+				PRODUCT_BUNDLE_IDENTIFIER = claudia.HandsUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -656,13 +660,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QYGH248NY2;
 				INFOPLIST_FILE = HandsUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = NSHWAHBWAH.HandsUp;
+				PRODUCT_BUNDLE_IDENTIFIER = claudia.HandsUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

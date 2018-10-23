@@ -18,6 +18,46 @@ class Post: PFObject, PFSubclassing {
     @NSManaged var question: String
     @NSManaged var likesCount: Int
     @NSManaged var commentsCount: Int
+    @NSManaged var anonymity: Bool
+    @NSManaged var dateCreated: String
+    
+    var post: PFObject?{
+        didSet{
+            if let post = post{
+                title = post["title"] as? String ?? ""
+                question = post["question"] as? String ?? ""
+                likesCount = post["likesCount"] as? Int ?? 0
+                commentsCount = post["commentsCount"] as? Int ?? 0
+                if let author = post.object(forKey: "author") as? PFUser{
+                    self.author = author
+                    if let anonymity = author.value(forKey: "anonymous") as? Bool{
+                        self.anonymity = anonymity
+                    }
+                }
+                let createdAt = post.createdAt!
+                dateCreated = formatTime(createdAt: createdAt)
+            }
+        }
+    }
+
+// MARK: date formatter returns string of formatted date
+func formatTime(createdAt: Date) -> String{
+    // Configure the input format to parse the date string
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    
+    //Create String from created_at date
+    let createdAtString = formatter.string(from: createdAt)
+    
+    // Convert String to Date
+    let date = formatter.date(from: createdAtString)!
+    // Configure output format
+    formatter.dateStyle = .short
+    formatter.timeStyle = .none
+    // Convert Date to String
+    return formatter.string(from: date)
+    
+}
     
     //Required Function
     class func parseClassName() -> String {

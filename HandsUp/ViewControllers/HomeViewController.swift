@@ -13,11 +13,8 @@ import Parse
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var posts: [PFObject] = []
-    
-    
     @IBOutlet weak var tableView: UITableView!
-    
+    var posts: [PFObject] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -25,23 +22,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-        let post = posts[indexPath.row]
+        let post = Post()
+        post.post = posts[indexPath.row]
+//        let post = posts[indexPath.row]
         
-        cell.TitleLabel.text = post["title"] as? String
+        cell.TitleLabel.text = post.title
         cell.TopAnswerLabel.text = "Be the first to answer this question to get a free milkshake!"
-        cell.RaisesCountLabel.text = "🤚" + (post["likesCount"] as? String ?? "0")
-        cell.CommentsCountLabel.text = "💬" + (post["commentsCount"] as? String ?? "0")
-
+        cell.RaisesCountLabel.text = "🤚" + String(post.likesCount)
+        cell.CommentsCountLabel.text = "💬" + String(post.commentsCount)
+    
         return cell
-        
-        
-        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell =  sender as! UITableViewCell
         if let indexPath = tableView.indexPath(for: cell){
-            let post = posts[indexPath.row]
+            let post = Post()
+            post.post = posts[indexPath.row]
             let questionDetailViewController = segue.destination as! QuestionDetailViewController
             questionDetailViewController.question = post
         }
