@@ -35,6 +35,8 @@ class ResponseViewController: UIViewController {
             } else {
                 print("post successful")
 //                self.performSegue(withIdentifier: "uploadedSegue", sender: nil)
+//                self.performSegue(withIdentifier: "questionDetailCell", sender: nil)
+                self.navigationController?.popViewController(animated: true)    //Takes user back to detail view.
             }
         })
     }

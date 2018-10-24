@@ -9,13 +9,23 @@
 import UIKit
 import Parse
 
+
+
+
+
 class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var answers: [PFObject] = []
 
     @IBOutlet weak var tableView: UITableView!
     var question: Post?
+    var answer: Answer?
     
+    
+    
+    //MARK: ASK NATHAN WHY 1 + answers.count DOES NOT WORK.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1;
+        return answers.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -23,8 +33,11 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
             let cell = tableView.dequeueReusableCell(withIdentifier: "questionDetailCell", for: indexPath) as! QuestionDetailCell
             cell.question = question
             return cell
+
+            
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "answerCell") as!  AnswerCell
+            cell.answer = answers[indexPath.row] as? Answer
             return cell
         }
     }
@@ -36,22 +49,42 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.dataSource = self
-
-        // Do any additional setup after loading the view.
+    
+    
+    func fetchAnswers(){
+        let questionID = question?.objectId
+        
+        let query = PFQuery(className: "Answer")
+        query.whereKey("postID", equalTo: questionID)      //MARK: THIS LINE IS NOT WORKING
+        query.addDescendingOrder("rating")
+        query.includeKey("author")
+        query.limit = 20
+        
+        //fetch stuff
+        query.findObjectsInBackground { (fetchedAnswers: [PFObject]?, error: Error?) in
+            if let fetchedAnswers = fetchedAnswers{
+                self.answers = fetchedAnswers as! [Answer]
+                
+            }else{
+                
+                if let error = error{
+                    print("There was an error fetching answers: " + error.localizedDescription)
+                }
+            }
+            self.tableView.reloadData()
+        }
+        
+        
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        self.fetchAnswers()
+        // Do any additional setup after loading the view.
     }
-    */
 
 }

@@ -16,12 +16,55 @@ class Answer: PFObject, PFSubclassing {
     @NSManaged var author: PFUser
     @NSManaged var response: String //This is the actual response the user typed out.
     @NSManaged var rating: Int      // Rating will start as 0 and will be a 10 point scale.
+    @NSManaged var date: String
     
     
     
     
     class func parseClassName() -> String {
         return "Answer"
+    }
+    
+    
+    var answer: PFObject? {
+        didSet{
+            if let answer = answer{     //These should all be required fields and shouldn't be nil. That's why these are all unwrapped.
+                self.postID = answer["postID"] as! String
+                self.author = answer.object(forKey: "author") as! PFUser
+                self.response = answer["response"] as! String
+                self.rating = answer["rating"] as! Int
+                
+                let createdAt = answer.createdAt!
+                self.date = formatTime(createdAt: createdAt)
+                
+            }
+            
+            
+        }
+        
+        
+        
+    }
+    
+    
+    
+    // MARK: date formatter returns string of formatted date
+    func formatTime(createdAt: Date) -> String{
+        // Configure the input format to parse the date string
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        //Create String from created_at date
+        let createdAtString = formatter.string(from: createdAt)
+        
+        // Convert String to Date
+        let date = formatter.date(from: createdAtString)!
+        // Configure output format
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        // Convert Date to String
+        return formatter.string(from: date)
+        
     }
     
     

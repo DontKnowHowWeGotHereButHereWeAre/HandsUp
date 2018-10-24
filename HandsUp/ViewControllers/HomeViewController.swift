@@ -43,10 +43,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             questionDetailViewController.question = post
         }
     }
-
+    
+    
+    //MARK: Fetch Data
     func fetchData(){
         let query = PFQuery(className: "Post")
-        
         query.order(byDescending: "createdAt")
         query.includeKey("author")
         query.limit = 20
