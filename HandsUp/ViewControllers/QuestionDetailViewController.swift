@@ -52,7 +52,8 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     
     func fetchAnswers(){
-        let questionID = question?.objectId
+        let questionID = question?.objectId ?? "question does not exist"
+        print("QuestionID: \(questionID)")
         
         let query = PFQuery(className: "Answer")
         query.whereKey("postID", equalTo: questionID)      //MARK: THIS LINE IS NOT WORKING
