@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 import Parse
 
-// I am trying to make a mdoel for our posts, but I have not finished this
-// Right now, this is unused.
 class Post: PFObject, PFSubclassing {
     @NSManaged var author: PFUser
     @NSManaged var title: String
@@ -35,25 +33,6 @@ class Post: PFObject, PFSubclassing {
             }
             let createdAt = post.createdAt!
             dateCreated = formatTime(createdAt: createdAt)
-        }
-    }
-    
-    var post: PFObject?{
-        didSet{
-            if let post = post{
-                title = post["title"] as? String ?? ""
-                question = post["question"] as? String ?? ""
-                likesCount = post["likesCount"] as? Int ?? 0
-                commentsCount = post["commentsCount"] as? Int ?? 0
-                if let author = post.object(forKey: "author") as? PFUser{
-                    self.author = author
-                    if let anonymity = author.value(forKey: "anonymous") as? Bool{
-                        self.anonymity = anonymity
-                    }
-                }
-                let createdAt = post.createdAt!
-                dateCreated = formatTime(createdAt: createdAt)
-            }
         }
     }
 

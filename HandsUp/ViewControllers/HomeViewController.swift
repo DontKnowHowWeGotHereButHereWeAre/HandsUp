@@ -35,8 +35,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell =  sender as! UITableViewCell
         if let indexPath = tableView.indexPath(for: cell){
-            let post = Post()
-            post.post = posts[indexPath.row]
             let questionDetailViewController = segue.destination as! QuestionDetailViewController
             questionDetailViewController.question = posts[indexPath.row] // = post
         }
@@ -52,10 +50,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //fetch Data
         query.findObjectsInBackground(block: { (fetchedPosts:[PFObject]?, error: Error?) in
-            if let fetchedPosts = fetchedPosts{
-                self.posts = fetchedPosts as! [Post]
+            if let fetchedPosts = fetchedPosts as? [Post]{
+                //I guess that the following for loop is not needed? this is working without it so idk.
+//                for fetchedPost in fetchedPosts{
+//                    let post = fetchedPost
+//                    post.setValue(with: fetchedPost)
+//                    self.posts.append(post)
+//                }
+                self.posts = fetchedPosts
             }else{
-                
                 if let error = error{
                     print(error.localizedDescription)
                 }

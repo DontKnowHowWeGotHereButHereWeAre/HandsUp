@@ -9,8 +9,6 @@
 import UIKit
 import Parse
 
-
-
 class Answer: PFObject, PFSubclassing {
     @NSManaged var postID: String   // Will be the same as the postID that the answer is answering to
     @NSManaged var author: PFUser
@@ -26,27 +24,18 @@ class Answer: PFObject, PFSubclassing {
     }
     
     
-    var answer: PFObject? {
-        didSet{
-            if let answer = answer{     //These should all be required fields and shouldn't be nil. That's why these are all unwrapped.
-                self.postID = answer["postID"] as! String
-                self.author = answer.object(forKey: "author") as! PFUser
-                self.response = answer["response"] as! String
-                self.rating = answer["rating"] as! Int
-                
-                let createdAt = answer.createdAt!
-                self.date = formatTime(createdAt: createdAt)
-                
-            }
-            
-            
+    func setValues(with answer: PFObject?){
+        if let answer = answer{     //These should all be required fields and shouldn't be nil. That's why these are all unwrapped.
+        self.postID = answer["postID"] as! String
+        self.author = answer.object(forKey: "author") as! PFUser
+        self.response = answer["response"] as! String
+        self.rating = answer["rating"] as! Int
+        
+        let createdAt = answer.createdAt!
+        self.date = formatTime(createdAt: createdAt)
+        
         }
-        
-        
-        
     }
-    
-    
     
     // MARK: date formatter returns string of formatted date
     func formatTime(createdAt: Date) -> String{
