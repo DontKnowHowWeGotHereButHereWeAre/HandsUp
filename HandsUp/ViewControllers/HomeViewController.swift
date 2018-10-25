@@ -14,7 +14,7 @@ import Parse
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
-    var posts: [PFObject] = []
+    var posts: [Post] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -22,9 +22,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-        let post = Post()
-        post.post = posts[indexPath.row]
-//        let post = posts[indexPath.row]
+        let post = posts[indexPath.row]
         
         cell.TitleLabel.text = post.title
         cell.TopAnswerLabel.text = "Be the first to answer this question to get a free milkshake!"
@@ -40,7 +38,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let post = Post()
             post.post = posts[indexPath.row]
             let questionDetailViewController = segue.destination as! QuestionDetailViewController
-            questionDetailViewController.question = post
+            questionDetailViewController.question = posts[indexPath.row] // = post
         }
     }
     

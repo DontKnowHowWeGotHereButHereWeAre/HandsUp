@@ -21,20 +21,24 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
     var question: Post?
     var answer: Answer?
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     
     
     //MARK: ASK NATHAN WHY 1 + answers.count DOES NOT WORK.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return answers.count;
+        if section == 0{
+            return 1
+        }
+        return answers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "questionDetailCell", for: indexPath) as! QuestionDetailCell
             cell.question = question
             return cell
-
-            
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "answerCell") as!  AnswerCell
             cell.answer = answers[indexPath.row] as? Answer
@@ -56,6 +60,7 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         print("QuestionID: \(questionID)")
         
         let query = PFQuery(className: "Answer")
+        query.whereKey("postID", matchesText: questionID)
         query.whereKey("postID", equalTo: questionID)      //MARK: THIS LINE IS NOT WORKING
         query.addDescendingOrder("rating")
         query.includeKey("author")
