@@ -25,6 +25,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let post = posts[indexPath.row]
         
         cell.TitleLabel.text = post.title
+        cell.authorLabel.text = post.authorName
+        cell.dateLabel.text = " · " + post.dateCreated
         cell.TopAnswerLabel.text = "Be the first to answer this question to get a free milkshake!"
         cell.RaisesCountLabel.text = "🤚" + String(post.likesCount)
         cell.CommentsCountLabel.text = "💬" + String(post.commentsCount)
@@ -51,12 +53,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //fetch Data
         query.findObjectsInBackground(block: { (fetchedPosts:[PFObject]?, error: Error?) in
             if let fetchedPosts = fetchedPosts as? [Post]{
-                //I guess that the following for loop is not needed? this is working without it so idk.
-//                for fetchedPost in fetchedPosts{
-//                    let post = fetchedPost
-//                    post.setValue(with: fetchedPost)
-//                    self.posts.append(post)
-//                }
+                //The following loop is needed to update the anonymity and date labels of the posts
+                for fetchedPost in fetchedPosts{
+                    let post = fetchedPost
+                    post.setValue(with: fetchedPost)
+                    self.posts.append(post)
+                }
                 self.posts = fetchedPosts
             }else{
                 if let error = error{
@@ -79,13 +81,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self;
         tableView.delegate = self;
         
-//        tableView.rowHeight = UITableView.automaticDimension
-//        tableView.estimatedRowHeight = 120
-        
         self.fetchData()
-        
-        
-        
     }
 
 }

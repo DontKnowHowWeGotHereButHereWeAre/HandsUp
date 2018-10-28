@@ -15,10 +15,8 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var TopAnswerLabel: UILabel!
     @IBOutlet weak var RaisesCountLabel: UILabel!
     @IBOutlet weak var CommentsCountLabel: UILabel!
-    
-    
-    
-    
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -15,7 +15,7 @@ import Parse
 
 class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var answers: [PFObject] = []
+    var answers: [Answer] = []
 
     @IBOutlet weak var tableView: UITableView!
     var question: Post?
@@ -25,8 +25,6 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         return 2
     }
     
-    
-    //MARK: ASK NATHAN WHY 1 + answers.count DOES NOT WORK.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
             return 1
@@ -41,7 +39,7 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "answerCell") as!  AnswerCell
-            cell.answer = answers[indexPath.row] as? Answer
+            cell.answer = answers[indexPath.row]
             return cell
         }
     }
@@ -68,9 +66,14 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         //fetch stuff
         query.findObjectsInBackground { (fetchedAnswers: [PFObject]?, error: Error?) in
-            if let fetchedAnswers = fetchedAnswers{
-                self.answers = fetchedAnswers as! [Answer]
-                
+            if let fetchedAnswers = fetchedAnswers as? [Answer]{
+            
+                for fetchedAnswer in fetchedAnswers{
+                    fetchedAnswer.setValues(with: fetchedAnswer)
+                    self.answers.append(fetchedAnswer)
+                }
+                    
+                    //                self.answers = fetchedAnswers as! [Answer]
             }else{
                 
                 if let error = error{

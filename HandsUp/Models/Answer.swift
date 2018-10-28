@@ -12,6 +12,7 @@ import Parse
 class Answer: PFObject, PFSubclassing {
     @NSManaged var postID: String   // Will be the same as the postID that the answer is answering to
     @NSManaged var author: PFUser
+    @NSManaged var authorName: String
     @NSManaged var response: String //This is the actual response the user typed out.
     @NSManaged var rating: Int      // Rating will start as 0 and will be a 10 point scale.
     @NSManaged var date: String
@@ -27,7 +28,17 @@ class Answer: PFObject, PFSubclassing {
     func setValues(with answer: PFObject?){
         if let answer = answer{     //These should all be required fields and shouldn't be nil. That's why these are all unwrapped.
         self.postID = answer["postID"] as! String
-        self.author = answer.object(forKey: "author") as! PFUser
+            if let author = answer.object(forKey: "author") as? PFUser{
+                //                self.author = author
+                if let anonymity = author.value(forKey: "anonymous") as? Bool{
+                    //                    self.anonymity = anonymity
+                    if anonymity{
+                        authorName = "Anonymous slice 🍕"
+                    } else {
+                        authorName = author.username!
+                    }
+                }
+            }
         self.response = answer["response"] as! String
         self.rating = answer["rating"] as! Int
         

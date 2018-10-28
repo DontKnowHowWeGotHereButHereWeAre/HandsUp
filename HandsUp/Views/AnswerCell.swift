@@ -31,7 +31,7 @@ class AnswerCell: UITableViewCell {
     var answer: Answer?{
         didSet{
             if let answer = answer{
-                self.usernameLabel.text = answer.author.username
+                self.usernameLabel.text = answer.authorName
                 self.dateLabel.text = answer.date
                 self.answerLabel.text = answer.response
                 self.raiseYourHandOutlet.titleLabel?.text = "🤚 + \(answer.rating)"

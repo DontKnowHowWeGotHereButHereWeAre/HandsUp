@@ -29,12 +29,7 @@ class QuestionDetailCell: UITableViewCell {
                 answersCountLabel.text? = "💬" + String(question.commentsCount)
                 
                 // MARK: checking the anonimity of a post
-                author = question.author
-                if question.anonymity{
-                    authorLabel.text = "Anonymous werewolf 🐺"
-                } else {
-                    authorLabel.text = author?.username
-                }
+                authorLabel.text = question.authorName
                 
                 // MARK: formated date label
                 dateLabel.text = " · " + question.dateCreated

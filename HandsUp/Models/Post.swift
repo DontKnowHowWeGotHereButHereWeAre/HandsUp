@@ -11,12 +11,13 @@ import UIKit
 import Parse
 
 class Post: PFObject, PFSubclassing {
+    //TODO: make user private
     @NSManaged var author: PFUser
+    @NSManaged var authorName: String //Stores the name anonymity
     @NSManaged var title: String
     @NSManaged var question: String
     @NSManaged var likesCount: Int
     @NSManaged var commentsCount: Int
-    @NSManaged var anonymity: Bool
     @NSManaged var dateCreated: String
     
     func setValue(with post: PFObject?) {
@@ -26,13 +27,16 @@ class Post: PFObject, PFSubclassing {
             likesCount = post["likesCount"] as? Int ?? 0
             commentsCount = post["commentsCount"] as? Int ?? 0
             if let author = post.object(forKey: "author") as? PFUser{
-                self.author = author
                 if let anonymity = author.value(forKey: "anonymous") as? Bool{
-                    self.anonymity = anonymity
+                    if anonymity{
+                        authorName = "Anonymous slice 🍕"
+                    } else {
+                        authorName = author.username!
+                    }
                 }
             }
             let createdAt = post.createdAt!
-            dateCreated = formatTime(createdAt: createdAt)
+            dateCreated = formatTime(createdAt: createdAt)            
         }
     }
 

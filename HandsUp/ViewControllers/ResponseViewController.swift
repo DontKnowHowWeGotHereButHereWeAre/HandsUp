@@ -11,6 +11,8 @@ import Parse
 
 class ResponseViewController: UIViewController, UITextViewDelegate {
 
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var responseTextView: UITextView!
@@ -28,18 +30,10 @@ class ResponseViewController: UIViewController, UITextViewDelegate {
         // Do any additional setup after loading the view.
         responseTextView.delegate = self
     }
-    
-    //This dismisses the keyboard when hitting the 'done' button
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
+ 
+    @IBAction func didTap(_ sender: UITapGestureRecognizer) {
+        self.responseTextView.resignFirstResponder()
     }
-    
-    //This dismisses the keyboard when touching out of textField
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
     
     @IBAction func didTapSubmit(_ sender: Any) {
         Answer.postAnswer(postReference: parentQuestion?.objectId, response: responseTextView.text, withCompletion: { (success, error) in
@@ -47,9 +41,8 @@ class ResponseViewController: UIViewController, UITextViewDelegate {
                 print(error.localizedDescription)
             } else {
                 print("post successful")
-//                self.performSegue(withIdentifier: "uploadedSegue", sender: nil)
-//                self.performSegue(withIdentifier: "questionDetailCell", sender: nil)
-                self.navigationController?.popViewController(animated: true)    //Takes user back to detail view.
+                self.parentQuestion?.incrementKey("commentCount")
+                self.parentQuestion?.saveInBackground()
             }
         })
     }
