@@ -29,6 +29,9 @@ class ResponseViewController: UIViewController, UITextViewDelegate {
         
         // Do any additional setup after loading the view.
         responseTextView.delegate = self
+        responseTextView.layer.borderWidth = 1
+        responseTextView.layer.borderColor = UIColor.lightGray.cgColor
+        responseTextView.layer.cornerRadius = 20
     }
  
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
