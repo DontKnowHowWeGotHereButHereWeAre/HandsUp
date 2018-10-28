@@ -31,23 +31,30 @@ class ResponseViewController: UIViewController, UITextViewDelegate {
         responseTextView.delegate = self
         responseTextView.layer.borderWidth = 1
         responseTextView.layer.borderColor = UIColor.lightGray.cgColor
-        responseTextView.layer.cornerRadius = 20
+        responseTextView.layer.cornerRadius = 15
     }
- 
+    
+    
+    
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
         self.responseTextView.resignFirstResponder()
     }
     
     @IBAction func didTapSubmit(_ sender: Any) {
-        Answer.postAnswer(postReference: parentQuestion?.objectId, response: responseTextView.text, withCompletion: { (success, error) in
-            if let error = error{
-                print(error.localizedDescription)
-            } else {
-                print("post successful")
-                self.parentQuestion?.incrementKey("commentCount")
-                self.parentQuestion?.saveInBackground()
-            }
-        })
+        if responseTextView.text.isEmpty{
+            //Add alert
+        } else {
+            Answer.postAnswer(postReference: parentQuestion?.objectId, response: responseTextView.text, withCompletion: { (success, error) in
+                if let error = error{
+                    print(error.localizedDescription)
+                } else {
+                    self.navigationController?.popViewController(animated: true)
+                    print("post successful")
+                    self.parentQuestion?.incrementKey("commentsCount")
+                    self.parentQuestion?.saveInBackground()
+                }
+            })
+        }
     }
     
     /*

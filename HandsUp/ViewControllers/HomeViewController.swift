@@ -71,7 +71,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        self.fetchData()
+    }
     
 
     override func viewDidLoad() {

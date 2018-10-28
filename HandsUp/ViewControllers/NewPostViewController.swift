@@ -8,7 +8,7 @@
 import RSKPlaceholderTextView
 import UIKit
 
-class NewPostViewController: UIViewController {
+class NewPostViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var titleField: RSKPlaceholderTextView!
     @IBOutlet weak var questionField: RSKPlaceholderTextView!
@@ -34,8 +34,15 @@ class NewPostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        titleField.delegate = self
+        titleField.layer.borderWidth = 1
+        titleField.layer.borderColor = UIColor.lightGray.cgColor
+        titleField.layer.cornerRadius = 15
         
-        
+        questionField.delegate = self
+        questionField.layer.borderWidth = 1
+        questionField.layer.borderColor = UIColor.lightGray.cgColor
+        questionField.layer.cornerRadius = 15
         // Do any additional setup after loading the view.
     }
 

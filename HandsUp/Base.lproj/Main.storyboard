@@ -203,38 +203,38 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is love?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCW-ov-rdt">
-                                                    <rect key="frame" x="8" y="8" width="359" height="21.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhG-1F-83r">
-                                                    <rect key="frame" x="9" y="55.5" width="358" height="122"/>
+                                                    <rect key="frame" x="9" y="58" width="358" height="122"/>
                                                     <string key="text">My question is about love. Specifically how it relates to corndogs. See I like corndogs, but I do not think that I love corndogs. I think I would be okay eating corndogs more, but not everyday. Do I love corndogs? Someone educate me. </string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✋ 7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmR-Sh-Z3c">
-                                                    <rect key="frame" x="9" y="185.5" width="32" height="17"/>
+                                                    <rect key="frame" x="9" y="188" width="32" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💬 11" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AA5-4C-MMR">
-                                                    <rect key="frame" x="330" y="185.5" width="37" height="17"/>
+                                                    <rect key="frame" x="330" y="188" width="37" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asked by: anonymous" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C39-VY-nzz">
-                                                    <rect key="frame" x="8" y="29.5" width="150" height="18"/>
+                                                    <rect key="frame" x="8" y="32" width="150" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" · 10/20/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dul-xL-IX5">
-                                                    <rect key="frame" x="158" y="29.5" width="90" height="18"/>
+                                                    <rect key="frame" x="158" y="32" width="90" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -275,42 +275,42 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anonymous" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CN0-Eh-KXi">
-                                                    <rect key="frame" x="15" y="11" width="85" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <rect key="frame" x="20" y="10" width="95" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now this looks like a job for me, so everybody just follow me." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybP-r1-ATk">
-                                                    <rect key="frame" x="15" y="37" width="345" height="41"/>
+                                                    <rect key="frame" x="20" y="35.5" width="335" height="41"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pin-PC-RKH">
-                                                    <rect key="frame" x="15" y="86" width="34" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pin-PC-RKH">
+                                                    <rect key="frame" x="20" y="84.5" width="34" height="30"/>
                                                     <state key="normal" title="✋ 7"/>
                                                     <connections>
                                                         <action selector="raiseYourHand:" destination="huc-lt-vJ7" eventType="touchUpInside" id="uMp-b6-c1v"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/20/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoz-GT-AmL">
-                                                    <rect key="frame" x="282" y="11" width="78" height="18"/>
+                                                    <rect key="frame" x="277" y="11.5" width="78" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ybP-r1-ATk" firstAttribute="trailing" secondItem="oar-iP-UnA" secondAttribute="trailingMargin" id="IJR-Dz-XX8"/>
-                                                <constraint firstItem="CN0-Eh-KXi" firstAttribute="leading" secondItem="oar-iP-UnA" secondAttribute="leadingMargin" id="Kvu-gs-PNT"/>
-                                                <constraint firstAttribute="trailing" secondItem="Eoz-GT-AmL" secondAttribute="trailing" constant="15" id="NgT-3E-8r7"/>
-                                                <constraint firstItem="pin-PC-RKH" firstAttribute="top" secondItem="ybP-r1-ATk" secondAttribute="bottom" constant="8" id="QNw-66-o6e"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="pin-PC-RKH" secondAttribute="bottom" constant="8" id="WLu-Kt-Hhu"/>
-                                                <constraint firstItem="Eoz-GT-AmL" firstAttribute="top" secondItem="oar-iP-UnA" secondAttribute="topMargin" id="bkt-9Z-wLV"/>
-                                                <constraint firstItem="CN0-Eh-KXi" firstAttribute="top" secondItem="oar-iP-UnA" secondAttribute="topMargin" id="gJk-qj-QGl"/>
-                                                <constraint firstItem="pin-PC-RKH" firstAttribute="leading" secondItem="oar-iP-UnA" secondAttribute="leadingMargin" id="jhs-xB-Va2"/>
-                                                <constraint firstItem="ybP-r1-ATk" firstAttribute="top" secondItem="CN0-Eh-KXi" secondAttribute="bottom" constant="8" id="pxe-aX-ae2"/>
-                                                <constraint firstItem="ybP-r1-ATk" firstAttribute="leading" secondItem="oar-iP-UnA" secondAttribute="leadingMargin" id="yXX-zx-Esf"/>
+                                                <constraint firstItem="ybP-r1-ATk" firstAttribute="top" secondItem="CN0-Eh-KXi" secondAttribute="bottom" constant="5" id="2tb-tb-T5X"/>
+                                                <constraint firstItem="ybP-r1-ATk" firstAttribute="leading" secondItem="oar-iP-UnA" secondAttribute="leading" constant="20" id="5fc-Cp-Ued"/>
+                                                <constraint firstItem="Eoz-GT-AmL" firstAttribute="centerY" secondItem="CN0-Eh-KXi" secondAttribute="centerY" id="9Y9-Fj-tzd"/>
+                                                <constraint firstItem="CN0-Eh-KXi" firstAttribute="top" secondItem="oar-iP-UnA" secondAttribute="top" constant="10" id="Adw-Jd-Gb8"/>
+                                                <constraint firstItem="CN0-Eh-KXi" firstAttribute="leading" secondItem="oar-iP-UnA" secondAttribute="leading" constant="20" id="Cs3-wL-RH8"/>
+                                                <constraint firstAttribute="trailing" secondItem="ybP-r1-ATk" secondAttribute="trailing" constant="20" id="Ran-LX-t7h"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="pin-PC-RKH" secondAttribute="bottom" constant="16" id="ZUQ-2U-iSV"/>
+                                                <constraint firstItem="pin-PC-RKH" firstAttribute="leading" secondItem="oar-iP-UnA" secondAttribute="leading" constant="20" id="n8s-jc-rOA"/>
+                                                <constraint firstItem="pin-PC-RKH" firstAttribute="top" secondItem="ybP-r1-ATk" secondAttribute="bottom" constant="8" id="pgX-Ob-q2e"/>
+                                                <constraint firstAttribute="trailing" secondItem="Eoz-GT-AmL" secondAttribute="trailing" constant="20" id="tNn-Fo-TmD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

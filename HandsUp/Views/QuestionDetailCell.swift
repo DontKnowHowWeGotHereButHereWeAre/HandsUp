@@ -20,21 +20,19 @@ class QuestionDetailCell: UITableViewCell {
     
     var author: PFUser?
     
-    var question: Post?{
-        didSet{
-            if let question = question{
-                questionLabel.text? = question.title
-                detailLabel.text? = question.question
-                raiseCountLabel.text? = "🤚" + String(question.likesCount)
-                answersCountLabel.text? = "💬" + String(question.commentsCount)
-                
-                // MARK: checking the anonimity of a post
-                authorLabel.text = question.authorName
-                
-                // MARK: formated date label
-                dateLabel.text = " · " + question.dateCreated
-                print(question)
-            }
+    func setValues(question: Post?){
+        if let question = question{
+            questionLabel.text? = question.title
+            detailLabel.text? = question.question
+            raiseCountLabel.text? = "🤚" + String(question.likesCount)
+            answersCountLabel.text? = "💬" + String(question.commentsCount)
+            
+            // MARK: checking the anonimity of a post
+            authorLabel.text = question.authorName
+            
+            // MARK: formated date label
+            dateLabel.text = " · " + question.dateCreated
+            print(question)
         }
     }
     

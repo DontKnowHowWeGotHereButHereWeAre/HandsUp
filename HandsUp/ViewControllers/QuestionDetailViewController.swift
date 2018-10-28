@@ -35,7 +35,7 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "questionDetailCell", for: indexPath) as! QuestionDetailCell
-            cell.question = question
+            cell.setValues(question: question)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "answerCell") as!  AnswerCell
@@ -59,7 +59,7 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         let query = PFQuery(className: "Answer")
         query.whereKey("postID", matchesText: questionID)
-        query.whereKey("postID", equalTo: questionID)      //MARK: THIS LINE IS NOT WORKING
+//        query.whereKey("postID", equalTo: questionID)      //MARK: THIS LINE IS NOT WORKING
         query.addDescendingOrder("rating")
         query.includeKey("author")
         query.limit = 20
@@ -67,15 +67,12 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         //fetch stuff
         query.findObjectsInBackground { (fetchedAnswers: [PFObject]?, error: Error?) in
             if let fetchedAnswers = fetchedAnswers as? [Answer]{
-            
+                self.answers.removeAll()
                 for fetchedAnswer in fetchedAnswers{
                     fetchedAnswer.setValues(with: fetchedAnswer)
                     self.answers.append(fetchedAnswer)
                 }
-                    
-                    //                self.answers = fetchedAnswers as! [Answer]
             }else{
-                
                 if let error = error{
                     print("There was an error fetching answers: " + error.localizedDescription)
                 }
@@ -86,13 +83,38 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    func updateQuestion() {
+        let query = PFQuery(className: "Post")
+        query.includeKey("author")
+        if let question = question{
+            query.getObjectInBackground(withId: question.objectId!) { (question: PFObject?, error: Error?) in
+                if let post = question as? Post{
+                    post.setValue(with: question)
+                    self.question = post
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+                let indexPath = IndexPath(row: 0, section: 0)
+                self.tableView.reloadRows(at: [indexPath], with: .none)
+            }
+        } else {
+            print("there is an error updating question")
+        }
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        updateQuestion()
+        self.fetchAnswers()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
 
-        self.fetchAnswers()
+//        self.fetchAnswers()
         // Do any additional setup after loading the view.
     }
 
