@@ -362,7 +362,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KS0-61-GR0" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="844"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the question today? " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYj-ll-W6G">
                                                 <rect key="frame" x="10" y="10" width="355" height="21.5"/>
@@ -371,28 +371,28 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91v-7n-I3X">
-                                                <rect key="frame" x="10" y="50.5" width="355" height="162.5"/>
+                                                <rect key="frame" x="10" y="46.5" width="355" height="162.5"/>
                                                 <string key="text">In publishing and graphic design, lorem ipsum is a placeholder text rarely used to demonstrate the visual form of a document without relying on meaningful content. Replacing the actual content with placeholder text allows designers to design the form of the content before the content itself has beens been produced</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter response: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5r-QH-1Qy">
-                                                <rect key="frame" x="10" y="223" width="355" height="21"/>
+                                                <rect key="frame" x="10" y="224" width="355" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="bRV-cD-TXS">
-                                                <rect key="frame" x="10" y="254" width="355" height="300"/>
+                                                <rect key="frame" x="10" y="260" width="355" height="100"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="QvN-Wz-wOT"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="3To-cG-OKS"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydb-dS-1V7">
-                                                <rect key="frame" x="163" y="804" width="49" height="30"/>
+                                                <rect key="frame" x="163" y="370" width="49" height="30"/>
                                                 <state key="normal" title="Submit"/>
                                                 <connections>
                                                     <action selector="didTapSubmit:" destination="c9l-aX-AYP" eventType="touchUpInside" id="ItT-bD-2OV"/>
@@ -401,21 +401,21 @@
                                         </subviews>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstItem="91v-7n-I3X" firstAttribute="top" secondItem="eYj-ll-W6G" secondAttribute="bottom" constant="19" id="Blv-AJ-rKz"/>
-                                            <constraint firstAttribute="trailing" secondItem="91v-7n-I3X" secondAttribute="trailing" constant="10" id="CL0-0x-zku"/>
-                                            <constraint firstItem="ydb-dS-1V7" firstAttribute="centerX" secondItem="KS0-61-GR0" secondAttribute="centerX" id="Pin-Ul-wPG"/>
-                                            <constraint firstItem="bRV-cD-TXS" firstAttribute="leading" secondItem="KS0-61-GR0" secondAttribute="leading" constant="10" id="SgA-hH-XYd"/>
-                                            <constraint firstAttribute="trailing" secondItem="r5r-QH-1Qy" secondAttribute="trailing" constant="10" id="cf0-He-XoX"/>
-                                            <constraint firstAttribute="trailing" secondItem="eYj-ll-W6G" secondAttribute="trailing" constant="10" id="eDa-Gm-mIS"/>
-                                            <constraint firstItem="ydb-dS-1V7" firstAttribute="top" secondItem="bRV-cD-TXS" secondAttribute="bottom" constant="250" id="faY-eH-Qdb"/>
-                                            <constraint firstItem="eYj-ll-W6G" firstAttribute="leading" secondItem="KS0-61-GR0" secondAttribute="leading" constant="10" id="fsf-ju-m67"/>
-                                            <constraint firstItem="r5r-QH-1Qy" firstAttribute="top" secondItem="91v-7n-I3X" secondAttribute="bottom" constant="10" id="ntn-7D-BPL"/>
-                                            <constraint firstItem="bRV-cD-TXS" firstAttribute="top" secondItem="r5r-QH-1Qy" secondAttribute="bottom" constant="10" id="sT7-OW-dsy"/>
-                                            <constraint firstAttribute="trailing" secondItem="bRV-cD-TXS" secondAttribute="trailing" constant="10" id="tXo-aL-SkR"/>
-                                            <constraint firstAttribute="bottom" secondItem="ydb-dS-1V7" secondAttribute="bottom" constant="10" id="vXt-wJ-Hqj"/>
-                                            <constraint firstItem="91v-7n-I3X" firstAttribute="leading" secondItem="KS0-61-GR0" secondAttribute="leading" constant="10" id="vxf-hf-pEy"/>
-                                            <constraint firstItem="eYj-ll-W6G" firstAttribute="top" secondItem="KS0-61-GR0" secondAttribute="top" constant="10" id="yaX-DK-1YE"/>
-                                            <constraint firstItem="r5r-QH-1Qy" firstAttribute="leading" secondItem="KS0-61-GR0" secondAttribute="leading" constant="10" id="z6k-wW-xMr"/>
+                                            <constraint firstItem="r5r-QH-1Qy" firstAttribute="top" secondItem="91v-7n-I3X" secondAttribute="bottom" constant="15" id="4ou-yW-deV"/>
+                                            <constraint firstItem="ydb-dS-1V7" firstAttribute="centerX" secondItem="KS0-61-GR0" secondAttribute="centerX" id="8J7-Vl-feG"/>
+                                            <constraint firstItem="91v-7n-I3X" firstAttribute="leading" secondItem="KS0-61-GR0" secondAttribute="leading" constant="10" id="8WE-HD-gFV"/>
+                                            <constraint firstItem="ydb-dS-1V7" firstAttribute="top" secondItem="bRV-cD-TXS" secondAttribute="bottom" constant="10" id="CfB-ZC-Sa5"/>
+                                            <constraint firstAttribute="trailing" secondItem="91v-7n-I3X" secondAttribute="trailing" constant="10" id="Fad-DV-Kck"/>
+                                            <constraint firstItem="r5r-QH-1Qy" firstAttribute="leading" secondItem="KS0-61-GR0" secondAttribute="leading" constant="10" id="JBc-xH-ukH"/>
+                                            <constraint firstItem="eYj-ll-W6G" firstAttribute="top" secondItem="KS0-61-GR0" secondAttribute="top" constant="10" id="Lgs-Mk-rvf"/>
+                                            <constraint firstAttribute="trailing" secondItem="bRV-cD-TXS" secondAttribute="trailing" constant="10" id="OYS-4P-aCj"/>
+                                            <constraint firstAttribute="trailing" secondItem="eYj-ll-W6G" secondAttribute="trailing" constant="10" id="R8n-Q4-4rQ"/>
+                                            <constraint firstItem="91v-7n-I3X" firstAttribute="top" secondItem="eYj-ll-W6G" secondAttribute="bottom" constant="15" id="W9a-Gy-CKv"/>
+                                            <constraint firstItem="bRV-cD-TXS" firstAttribute="leading" secondItem="KS0-61-GR0" secondAttribute="leading" constant="10" id="X3x-v8-E7J"/>
+                                            <constraint firstAttribute="trailing" secondItem="r5r-QH-1Qy" secondAttribute="trailing" constant="10" id="XNo-pI-jgu"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ydb-dS-1V7" secondAttribute="bottom" constant="50" id="cbj-fc-mZA"/>
+                                            <constraint firstItem="eYj-ll-W6G" firstAttribute="leading" secondItem="KS0-61-GR0" secondAttribute="leading" constant="10" id="ojG-oJ-i8q"/>
+                                            <constraint firstItem="bRV-cD-TXS" firstAttribute="top" secondItem="r5r-QH-1Qy" secondAttribute="bottom" constant="15" id="xWf-B8-eQY"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="7fm-zT-lLP" appends="YES" id="WsW-LP-eKl"/>
@@ -424,21 +424,21 @@
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="KS0-61-GR0" firstAttribute="height" secondItem="Eh4-km-3BP" secondAttribute="height" priority="250" id="0vJ-F7-9er"/>
-                                    <constraint firstItem="KS0-61-GR0" firstAttribute="leading" secondItem="Eh4-km-3BP" secondAttribute="leading" id="3xG-gs-2Oh"/>
-                                    <constraint firstItem="KS0-61-GR0" firstAttribute="top" secondItem="Eh4-km-3BP" secondAttribute="top" id="E8U-4b-H3x"/>
-                                    <constraint firstAttribute="bottom" secondItem="KS0-61-GR0" secondAttribute="bottom" id="RON-b5-Hwl"/>
-                                    <constraint firstAttribute="trailing" secondItem="KS0-61-GR0" secondAttribute="trailing" id="SrF-LW-OMy"/>
-                                    <constraint firstItem="KS0-61-GR0" firstAttribute="width" secondItem="Eh4-km-3BP" secondAttribute="width" id="m2j-Kc-jC9"/>
+                                    <constraint firstItem="KS0-61-GR0" firstAttribute="leading" secondItem="Eh4-km-3BP" secondAttribute="leading" id="L7g-mE-IcH"/>
+                                    <constraint firstAttribute="trailing" secondItem="KS0-61-GR0" secondAttribute="trailing" id="Q7d-WQ-Kn6"/>
+                                    <constraint firstItem="KS0-61-GR0" firstAttribute="width" secondItem="Eh4-km-3BP" secondAttribute="width" id="Rn3-Fk-S44"/>
+                                    <constraint firstAttribute="bottom" secondItem="KS0-61-GR0" secondAttribute="bottom" id="W3d-kh-kCi"/>
+                                    <constraint firstItem="KS0-61-GR0" firstAttribute="height" secondItem="Eh4-km-3BP" secondAttribute="height" priority="100" id="fmP-ng-K0o"/>
+                                    <constraint firstItem="KS0-61-GR0" firstAttribute="top" secondItem="Eh4-km-3BP" secondAttribute="top" id="nyL-nu-rnJ"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cBp-I7-y1K" firstAttribute="bottom" secondItem="Eh4-km-3BP" secondAttribute="bottom" id="2VG-23-I7j"/>
-                            <constraint firstItem="Eh4-km-3BP" firstAttribute="leading" secondItem="cBp-I7-y1K" secondAttribute="leading" id="Uvy-bk-cV7"/>
-                            <constraint firstItem="Eh4-km-3BP" firstAttribute="top" secondItem="cBp-I7-y1K" secondAttribute="top" id="hNM-k0-Jzz"/>
-                            <constraint firstItem="cBp-I7-y1K" firstAttribute="trailing" secondItem="Eh4-km-3BP" secondAttribute="trailing" id="r3i-nv-dI5"/>
+                            <constraint firstItem="Eh4-km-3BP" firstAttribute="trailing" secondItem="cBp-I7-y1K" secondAttribute="trailing" id="0de-gO-e8J"/>
+                            <constraint firstItem="Eh4-km-3BP" firstAttribute="top" secondItem="cBp-I7-y1K" secondAttribute="top" id="DcE-E9-vVo"/>
+                            <constraint firstItem="Eh4-km-3BP" firstAttribute="bottom" secondItem="cBp-I7-y1K" secondAttribute="bottom" id="GEw-ZF-Sjn"/>
+                            <constraint firstItem="Eh4-km-3BP" firstAttribute="leading" secondItem="cBp-I7-y1K" secondAttribute="leading" id="MZz-6H-Bbe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cBp-I7-y1K"/>
                     </view>
