@@ -547,7 +547,59 @@
                     <view key="view" contentMode="scaleToFill" id="wXm-hR-pqg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tim Cook" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGe-bQ-fFZ">
+                                <rect key="frame" x="15" y="79" width="345" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUE-jq-hzx">
+                                <rect key="frame" x="0.0" y="112.5" width="125" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="D0I-BT-oMr"/>
+                                </constraints>
+                                <state key="normal" title="Responses"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7u-rF-Oxk">
+                                <rect key="frame" x="125" y="112.5" width="125" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="amO-eY-ej1"/>
+                                </constraints>
+                                <state key="normal" title="Responses"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EbH-3t-QaE">
+                                <rect key="frame" x="0.0" y="162.5" width="375" height="455.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abJ-Xi-ds0">
+                                <rect key="frame" x="250" y="112.5" width="125" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Yr4-j8-fZD"/>
+                                </constraints>
+                                <state key="normal" title="Raises"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EbH-3t-QaE" firstAttribute="trailing" secondItem="uw7-ee-nPm" secondAttribute="trailing" id="43V-ok-FeU"/>
+                            <constraint firstItem="uw7-ee-nPm" firstAttribute="trailing" secondItem="dGe-bQ-fFZ" secondAttribute="trailing" constant="15" id="67x-na-aZr"/>
+                            <constraint firstItem="EbH-3t-QaE" firstAttribute="top" secondItem="DUE-jq-hzx" secondAttribute="bottom" id="CXK-Gj-1h1"/>
+                            <constraint firstItem="abJ-Xi-ds0" firstAttribute="top" secondItem="dGe-bQ-fFZ" secondAttribute="bottom" constant="8" id="CgK-KD-nDT"/>
+                            <constraint firstItem="DUE-jq-hzx" firstAttribute="top" secondItem="dGe-bQ-fFZ" secondAttribute="bottom" constant="8" id="FO6-PO-2rf"/>
+                            <constraint firstItem="P7u-rF-Oxk" firstAttribute="leading" secondItem="DUE-jq-hzx" secondAttribute="trailing" id="FdI-GQ-WCD"/>
+                            <constraint firstItem="P7u-rF-Oxk" firstAttribute="top" secondItem="dGe-bQ-fFZ" secondAttribute="bottom" constant="8" id="G0E-Is-q6n"/>
+                            <constraint firstItem="DUE-jq-hzx" firstAttribute="width" secondItem="wXm-hR-pqg" secondAttribute="width" multiplier="1:3" id="H2f-4i-Tfh"/>
+                            <constraint firstItem="dGe-bQ-fFZ" firstAttribute="leading" secondItem="uw7-ee-nPm" secondAttribute="leading" constant="15" id="MMR-k6-gMY"/>
+                            <constraint firstItem="abJ-Xi-ds0" firstAttribute="leading" secondItem="P7u-rF-Oxk" secondAttribute="trailing" id="ORv-Fb-MfO"/>
+                            <constraint firstItem="dGe-bQ-fFZ" firstAttribute="top" secondItem="uw7-ee-nPm" secondAttribute="top" constant="15" id="ief-cv-TrK"/>
+                            <constraint firstItem="DUE-jq-hzx" firstAttribute="leading" secondItem="uw7-ee-nPm" secondAttribute="leading" id="n15-Xs-PgW"/>
+                            <constraint firstItem="EbH-3t-QaE" firstAttribute="bottom" secondItem="uw7-ee-nPm" secondAttribute="bottom" id="rpu-sq-JEf"/>
+                            <constraint firstItem="EbH-3t-QaE" firstAttribute="leading" secondItem="uw7-ee-nPm" secondAttribute="leading" id="tiV-At-CyB"/>
+                            <constraint firstItem="DUE-jq-hzx" firstAttribute="width" secondItem="abJ-Xi-ds0" secondAttribute="width" id="wJJ-IJ-JNk"/>
+                            <constraint firstItem="abJ-Xi-ds0" firstAttribute="trailing" secondItem="uw7-ee-nPm" secondAttribute="trailing" id="wQt-wb-V0f"/>
+                            <constraint firstItem="DUE-jq-hzx" firstAttribute="width" secondItem="P7u-rF-Oxk" secondAttribute="width" id="zOd-sw-lLg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="uw7-ee-nPm"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="81U-LS-Osi">
@@ -565,7 +617,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="II3-yS-G2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-42" y="197"/>
+            <point key="canvasLocation" x="-42.399999999999999" y="196.55172413793105"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="p7e-6o-q7t">

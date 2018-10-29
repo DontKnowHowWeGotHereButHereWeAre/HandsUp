@@ -103,10 +103,12 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         updateQuestion()
         self.fetchAnswers()
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
