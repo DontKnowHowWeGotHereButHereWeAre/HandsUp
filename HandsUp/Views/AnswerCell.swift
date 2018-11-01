@@ -31,12 +31,22 @@ class AnswerCell: UITableViewCell {
     var answer: Answer?{
         didSet{
             if let answer = answer{
+                raiseYourHandOutlet.titleLabel?.numberOfLines = 0;
+                
+//                raiseYourHandOutlet.titleLabel?.adjustsFontSizeToFitWidth = true
+//                raiseYourHandOutlet.titleLabel?.lineBreakMode = NSLineBreakMode.byClipping
+                
+                let test = 500
+                
                 self.usernameLabel.text = answer.authorName
                 self.dateLabel.text = answer.date
                 self.answerLabel.text = answer.response
-                self.raiseYourHandOutlet.titleLabel?.text = "🤚 + \(answer.rating)"
+//                self.raiseYourHandOutlet.titleLabel?.text = "🤚 \(answer.rating)"
+                self.raiseYourHandOutlet.titleLabel?.text = "🤚 \(test)"
+//                self.raiseYourHandOutlet.titleLabel?.text = "The square root of 20"
+                print("🤚 + \(answer.rating)")
                 
-                print("DID SET ANSWER CELL INFORMATION")
+//                print("DID SET ANSWER CELL INFORMATION")
             }
         }
     }

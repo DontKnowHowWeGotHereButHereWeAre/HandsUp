@@ -59,7 +59,6 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         let query = PFQuery(className: "Answer")
         query.whereKey("postID", matchesText: questionID)
-//        query.whereKey("postID", equalTo: questionID)      //MARK: THIS LINE IS NOT WORKING
         query.addDescendingOrder("rating")
         query.includeKey("author")
         query.limit = 20
@@ -107,6 +106,8 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         super.viewWillAppear(true)
         updateQuestion()
         self.fetchAnswers()
+        
+        tableView.reloadData()
     }
     
     
@@ -115,8 +116,10 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        self.fetchAnswers()
+        tableView.reloadData()
 
-//        self.fetchAnswers()
         // Do any additional setup after loading the view.
     }
 
