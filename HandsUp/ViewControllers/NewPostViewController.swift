@@ -14,15 +14,29 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var questionField: RSKPlaceholderTextView!
     
     @IBAction func didTapSubmit(_ sender: Any) {
-        Post.postQuestion(title: titleField.text, withQuestion: questionField.text) { (success, error) in
-            if let error = error{
-                print(error.localizedDescription)
-            } else {
-                print("post successful")
-                self.performSegue(withIdentifier: "uploadedSegue", sender: nil)
+        if !titleField.text.isEmpty && !questionField.text.isEmpty {
+            Post.postQuestion(title: titleField.text, withQuestion: questionField.text) { (success, error) in
+                if let error = error{
+                    print(error.localizedDescription)
+                } else {
+                    print("post successful")
+                    self.performSegue(withIdentifier: "uploadedSegue", sender: nil)
+                }
             }
+        } else{
+            let title = "Uh oh!"
+            var message: String
+            if !titleField.text.isEmpty{
+                message = "This response is hungry. You left the question blank."
+            } else if !questionField.text.isEmpty{
+                message = "This response is hungry. You left the question topic blank."
+            } else{
+                message = "Unable to submit blank question"
+            }
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true)
         }
-        
     }
     
     

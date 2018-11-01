@@ -42,7 +42,9 @@ class ResponseViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func didTapSubmit(_ sender: Any) {
         if responseTextView.text.isEmpty{
-            //Add alert
+            let alert = UIAlertController(title: "Uh oh!", message: "Please enter a response", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true)
         } else {
             Answer.postAnswer(postReference: parentQuestion?.objectId, response: responseTextView.text, withCompletion: { (success, error) in
                 if let error = error{
