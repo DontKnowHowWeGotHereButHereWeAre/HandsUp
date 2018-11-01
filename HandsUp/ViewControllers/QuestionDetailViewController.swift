@@ -39,7 +39,7 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "answerCell") as!  AnswerCell
-            cell.answer = answers[indexPath.row]
+            cell.setValuesforAnswer(with: answers[indexPath.row])
             return cell
         }
     }
@@ -70,6 +70,7 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
                 for fetchedAnswer in fetchedAnswers{
                     fetchedAnswer.setValues(with: fetchedAnswer)
                     self.answers.append(fetchedAnswer)
+                    print("New answer added to array: \(self.answers.count)")
                 }
             }else{
                 if let error = error{
@@ -106,8 +107,6 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         super.viewWillAppear(true)
         updateQuestion()
         self.fetchAnswers()
-        
-        tableView.reloadData()
     }
     
     
@@ -118,7 +117,6 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         tableView.delegate = self
         
         self.fetchAnswers()
-        tableView.reloadData()
 
         // Do any additional setup after loading the view.
     }
