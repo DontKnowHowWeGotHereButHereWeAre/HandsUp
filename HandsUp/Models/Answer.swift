@@ -16,6 +16,8 @@ class Answer: PFObject, PFSubclassing {
     @NSManaged var response: String //This is the actual response the user typed out.
     @NSManaged var rating: Int      // Rating will start as 0 and will be a 10 point scale.
     @NSManaged var date: String
+    @NSManaged var likedBy: [String]
+    @NSManaged var likesCount: Int
     
     
     
@@ -27,11 +29,9 @@ class Answer: PFObject, PFSubclassing {
     
     func setValues(with answer: PFObject?){
         if let answer = answer{     //These should all be required fields and shouldn't be nil. That's why these are all unwrapped.
-        self.postID = answer["postID"] as! String
+            postID = answer["postID"] as! String
             if let author = answer.object(forKey: "author") as? PFUser{
-                //                self.author = author
                 if let anonymity = author.value(forKey: "anonymous") as? Bool{
-                    //                    self.anonymity = anonymity
                     if anonymity{
                         authorName = "Anonymous slice 🍕"
                     } else {
@@ -39,12 +39,13 @@ class Answer: PFObject, PFSubclassing {
                     }
                 }
             }
-        self.response = answer["response"] as! String
-        self.rating = answer["rating"] as! Int
-        
-        let createdAt = answer.createdAt!
-        self.date = formatTime(createdAt: createdAt)
-        
+            response = answer["response"] as! String
+            rating = answer["rating"] as! Int
+            likedBy = answer["likedBy"] as? [String] ?? ["0"]
+            
+            let createdAt = answer.createdAt!
+            date = formatTime(createdAt: createdAt)
+            
         }
     }
     
@@ -70,7 +71,6 @@ class Answer: PFObject, PFSubclassing {
     
     class func postAnswer(postReference: String?, response: String?, withCompletion completion: PFBooleanResultBlock?){
         let answer = Answer()
-        
         answer.author = PFUser.current()!       //Stores the author
         
         if let postReference = postReference{
@@ -82,13 +82,36 @@ class Answer: PFObject, PFSubclassing {
         }
         
         answer.rating = 0                       //Stores rating
-        
         answer.saveInBackground(block: completion)
-        
-        
-        
     }
     
-    
+    class func raiseHand(post: Answer?, withCompletion completion: PFBooleanResultBlock?) -> Int?{
+        if let post = post{
+            if let currentUser = PFUser.current(){
+                print("post: \(post)")
+                print("user: \(currentUser)")
+                if post.likedBy.contains(currentUser.objectId!) {
+                    currentUser.remove(post, forKey: "answersLiked")
+                    currentUser.saveInBackground()
+                    
+                    post.incrementKey("likesCount", byAmount: -1)
+                    post.remove(currentUser.objectId!, forKey: "likedBy")
+                    post.saveInBackground(block: completion)
+                    
+                    //Because it is already liked?
+                } else {
+                    currentUser.add(post, forKey: "answersLiked")
+                    currentUser.saveInBackground()
+                    
+                    post.incrementKey("likesCount")
+                    post.add(currentUser.objectId!, forKey: "likedBy")
+                    post.saveInBackground(block: completion)
+                    //Because it has not been liked yet?
+                }
+                return post.likesCount
+            }
+        }
+        return nil
+    }
     
 }

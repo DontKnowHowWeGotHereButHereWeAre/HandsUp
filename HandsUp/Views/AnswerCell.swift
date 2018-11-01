@@ -19,36 +19,42 @@ class AnswerCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     
-    
-    //TODO: This needs to do something.
-    // Needs to up the raise count (labelled rating in JSON)
-    @IBAction func raiseYourHand(_ sender: Any) {
-        
-        
-    }
-    
-    
-    
-    
-    func setValuesforAnswer(with answer: Answer?) -> Void{
-        
+    private var answer: Answer?{
+        didSet{
             if let answer = answer{
-                
-                
                 self.usernameLabel.text = answer.authorName
                 self.dateLabel.text = answer.date
                 self.answerLabel.text = answer.response
-                
-                
                 self.handCountLabel.text = "\(answer.rating)"
-
+                
                 print("🤚 + \(answer.rating)")
                 
             }else{
                 print("No proper answer attribute given")
+            }
         }
     }
     
+    func setValuesforAnswer(with answer: Answer?) -> Void{
+        self.answer = answer
+    }
+    
+    //TODO: This needs to do something.
+    // Needs to up the raise count (labelled rating in JSON)
+    @IBAction func raiseYourHand(_ sender: Any) {
+        let raises = Answer.raiseHand(post: answer) { (success, error) in
+            if success {
+                print("successfully like")
+            }
+            else if let error =  error {
+                print(error.localizedDescription)
+            }
+        }
+        if let raises = raises{
+            self.handCountLabel.text = String(raises)
+        }
+        
+    }
     
     
     override func awakeFromNib() {
