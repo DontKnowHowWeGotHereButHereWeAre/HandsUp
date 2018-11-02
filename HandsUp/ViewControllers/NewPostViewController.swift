@@ -23,14 +23,14 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
                     self.performSegue(withIdentifier: "uploadedSegue", sender: nil)
                 }
             }
-        } else{
+        } else {
             let title = "Uh oh!"
             var message: String
             if !titleField.text.isEmpty{
                 message = "This response is hungry. You left the question blank."
             } else if !questionField.text.isEmpty{
                 message = "This response is hungry. You left the question topic blank."
-            } else{
+            } else {
                 message = "Unable to submit blank question"
             }
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
