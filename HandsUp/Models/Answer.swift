@@ -14,7 +14,6 @@ class Answer: PFObject, PFSubclassing {
     @NSManaged var author: PFUser
     @NSManaged var authorName: String
     @NSManaged var response: String //This is the actual response the user typed out.
-    @NSManaged var rating: Int      // Rating will start as 0 and will be a 10 point scale.
     @NSManaged var date: String
     @NSManaged var likedBy: [String]
     @NSManaged var likesCount: Int
@@ -40,7 +39,7 @@ class Answer: PFObject, PFSubclassing {
                 }
             }
             response = answer["response"] as! String
-            rating = answer["rating"] as! Int
+            likesCount = answer["likesCount"] as? Int ?? 0
             likedBy = answer["likedBy"] as? [String] ?? ["0"]
             
             let createdAt = answer.createdAt!
@@ -81,7 +80,7 @@ class Answer: PFObject, PFSubclassing {
             answer.response = response          //Stores the respoonse
         }
         
-        answer.rating = 0                       //Stores rating
+        answer.likesCount = 0                   //Stores the number of raises
         answer.saveInBackground(block: completion)
     }
     

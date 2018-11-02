@@ -25,9 +25,9 @@ class AnswerCell: UITableViewCell {
                 self.usernameLabel.text = answer.authorName
                 self.dateLabel.text = answer.date
                 self.answerLabel.text = answer.response
-                self.handCountLabel.text = "\(answer.rating)"
+                self.handCountLabel.text = "\(answer.likesCount)"
                 
-                print("🤚 + \(answer.rating)")
+                print("🤚 + \(answer.likesCount)")
                 
             }else{
                 print("No proper answer attribute given")

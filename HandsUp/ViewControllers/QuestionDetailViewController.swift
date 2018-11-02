@@ -9,10 +9,6 @@
 import UIKit
 import Parse
 
-
-
-
-
 class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var answers: [Answer] = []
@@ -59,7 +55,7 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         let query = PFQuery(className: "Answer")
         query.whereKey("postID", matchesText: questionID)
-        query.addDescendingOrder("rating")
+        query.addAscendingOrder("createdAt")
         query.includeKey("author")
         query.limit = 20
         
