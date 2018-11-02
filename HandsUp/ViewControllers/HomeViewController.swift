@@ -13,8 +13,6 @@ import Parse
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var refreshControl = UIRefreshControl()
-    
     
     @IBOutlet weak var tableView: UITableView!
     var posts: [Post] = []
@@ -74,6 +72,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     }
     
+    @objc func refreshHomeAction(_ refreshControl: UIRefreshControl){
+        self.fetchData()
+        refreshControl.endRefreshing()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         self.fetchData()
     }
@@ -81,6 +84,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Refresh control stuff
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshHomeAction(_:)), for: UIControl.Event.valueChanged)
+        tableView.addSubview(refreshControl)
+        
+        
 
         //tableView Defaults
         tableView.dataSource = self;

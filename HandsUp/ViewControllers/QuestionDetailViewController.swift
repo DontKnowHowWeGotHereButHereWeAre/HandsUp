@@ -110,8 +110,20 @@ class QuestionDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     
+    @objc func refreshQuestionDetailAction(_ refreshControl: UIRefreshControl){
+        self.fetchAnswers()
+        refreshControl.endRefreshing()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Refresh Control stuff
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshQuestionDetailAction(_:)), for: UIControl.Event.valueChanged)
+        tableView.addSubview(refreshControl)
+        
         
         tableView.dataSource = self
         tableView.delegate = self
