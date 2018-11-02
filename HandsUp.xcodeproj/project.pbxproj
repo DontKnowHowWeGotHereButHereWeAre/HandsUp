@@ -111,11 +111,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4935C2902177FAAD001FE9FD /* ViewControllers */ = {
+		4914DF37218D196C003FF3A3 /* SignInStory */ = {
 			isa = PBXGroup;
 			children = (
 				4935C2912177FACA001FE9FD /* SignInViewController.swift */,
 				4935C2942177FD17001FE9FD /* SignUpViewController.swift */,
+			);
+			path = SignInStory;
+			sourceTree = "<group>";
+		};
+		4935C2902177FAAD001FE9FD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4914DF37218D196C003FF3A3 /* SignInStory */,
 				490D440D217B8088008E328B /* HomeViewController.swift */,
 				49EEBB6C217C121900215DCF /* QuestionDetailViewController.swift */,
 				498D3091217B941100D33BCA /* NewPostViewController.swift */,

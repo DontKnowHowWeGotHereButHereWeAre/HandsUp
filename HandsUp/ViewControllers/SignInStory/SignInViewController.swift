@@ -22,7 +22,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
-                //Account for error 202
+                let message = error.localizedDescription
+                let alert = UIAlertController(title: "Uh oh!", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                self.present(alert, animated: true)
             } else {
                 print("User login successful")
                 self.performSegue(withIdentifier: "signInSegue", sender: nil)
