@@ -13,6 +13,9 @@ import Parse
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    var refreshControl = UIRefreshControl()
+    
+    
     @IBOutlet weak var tableView: UITableView!
     var posts: [Post] = []
     
