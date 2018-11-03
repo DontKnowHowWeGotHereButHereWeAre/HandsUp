@@ -29,10 +29,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             (success: Bool, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
-                // TODO: account for error 202
+                let message = error.localizedDescription
+                let alert = UIAlertController(title: "Uh oh!", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                self.present(alert, animated: true)
             } else {
                 print("User registered successfully")
-                // TODO: add segue to home feed
+                // MARK: segue to home feed
                 self.performSegue(withIdentifier: "signUpSegue", sender: nil)
             }
         }
