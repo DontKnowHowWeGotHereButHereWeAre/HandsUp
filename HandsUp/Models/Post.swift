@@ -23,7 +23,7 @@ class Post: PFObject, PFSubclassing {
     
     func setValue(with post: PFObject?) {
         if let post = post{
-            title = post["title"] as? String ?? ""
+            title = post["title"] as? String ?? "No question title"
             question = post["question"] as? String ?? ""
             likesCount = post["likesCount"] as? Int ?? 0
             commentsCount = post["commentsCount"] as? Int ?? 0

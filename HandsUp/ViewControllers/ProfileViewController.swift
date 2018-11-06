@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController, UITableViewDataSource {
     
+    var user: PFUser?
     var questions: [Post]?
     var responses: [Answer]?
     var questionRaises: [Post]?
@@ -22,10 +23,20 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        user = PFUser.current()
+        usernameLabel.text = user?.username ?? "Anonymous werewolf 🐺"
+        
         tableview.dataSource = self
-        fetchPosts()
+        fetchCurrentUserInfo()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        user = PFUser.current()
+        fetchCurrentUserInfo()
     }
     
     @IBAction func didTapLogout(_ sender: Any) {
@@ -36,12 +47,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func didTapQuestions(_ sender: Any) {
         mode = 1
+        tableview.reloadData()
     }
     @IBAction func didTapResponses(_ sender: Any) {
         mode = 2
+        tableview.reloadData()
     }
     @IBAction func didTapRaises(_ sender: Any) {
         mode = 3
+        fetchCurrentUserInfo()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,7 +75,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         case 3:
             //case 3
             let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell") as!  QuestionDetailCell
-            cell.setValues(question: questionRaises?[indexPath.row])
+//            cell.setValues(question: questionRaises?[indexPath.row])
             return cell
         case 2:
             //case 2
@@ -77,31 +91,52 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     }
     
     
-    func fetchPosts() {
-//        let query = PFQuery(className: "Questions")
-//        query.
+//    func fetchUser() {
+//        let query = PFQuery(className: "Post")
+//        query.whereKey("author", equalTo: PFUser.current())
 //        query.addDescendingOrder("rating")
-//        query.includeKey("author")
 //        query.limit = 20
 //
 //        //fetch stuff
-//        query.findObjectsInBackground { (fetchedAnswers: [PFObject]?, error: Error?) in
-//            if let fetchedAnswers = fetchedAnswers as? [Answer]{
+//        query.findObjectsInBackground { (fetchedPosts: [PFObject]?, error: Error?) in
+//            if let fetchedPosts = fetchedPosts as? [Post]{
 //                self.answers.removeAll()
-//                for fetchedAnswer in fetchedAnswers{
-//                    fetchedAnswer.setValues(with: fetchedAnswer)
-//                    self.answers.append(fetchedAnswer)
-//                    print("New answer added to array: \(self.answers.count)")
+//                for fetchedPost in fetchedPosts{
+//                    fetchedPost.setValues(with: fetchedPost)
+//                    self.posts.append(fetchedAnswer)
 //                }
 //            }else{
 //                if let error = error{
-//                    print("There was an error fetching answers: " + error.localizedDescription)
+//                    print("There was an error fetching posts: " + error.localizedDescription)
 //                }
 //            }
-//            self.tableView.reloadData()
-//        }
+//            self.tableview.reloadData()
+//            } as! PFQueryArrayResultBlock
+//    }
+    
+    func fetchCurrentUserInfo(){
+        let currentUser = PFUser.current()
+        
+        print(currentUser)
+        print (currentUser?["postsLiked"] ?? "no postsLiked")
+        
+        if let posts = currentUser?.object(forKey: "postsLiked") as? [PFObject]{
+            for post in posts{
+//                post.setValue(with: post)
+//                if let title = post.value(forKey: "title") as? String{
+//                    print(title)
+//                }
+                print(post)
+            }
+//            questionRaises = posts
+            print(posts)
+        }
+        
         tableview.reloadData()
+        
     }
+    
+    
     
     /*
     // MARK: - Navigation
