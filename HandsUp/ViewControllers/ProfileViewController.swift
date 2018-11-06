@@ -114,13 +114,36 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
 //            } as! PFQueryArrayResultBlock
 //    }
     
+
+    func fetchThisObject(_ classObject: String){
+        guard let user = user else {
+            print("Error 1 in fetchThisObject method")
+            return
+        }
+        
+        let query = PFQuery(className: classObject)
+        query.whereKey("author", equalTo: user)
+        query.addDescendingOrder("created_at")
+        query.limit = 20
+        
+        //fetch stuff
+        
+        query.findObjectsInBackground { (fetchedObjects, error) in
+            if let fetchedObjects = fetchedObjects as? [Post] {
+                self.questions = fetchedObjects
+            } else if let error = error {
+                print("Error 2 in fetchThisObject: \(error.localizedDescription)")
+            }
+            self.tableview.reloadData()
+        }
+    }
+    
     func fetchCurrentUserInfo(){
-        let currentUser = PFUser.current()
         
-        print(currentUser)
-        print (currentUser?["postsLiked"] ?? "no postsLiked")
+        print(user?.username ?? "no username")
+        print (user?["postsLiked"] ?? "no postsLiked")
         
-        if let posts = currentUser?.object(forKey: "postsLiked") as? [PFObject]{
+        if let posts = user?.object(forKey: "postsLiked") as? [PFObject]{
             for post in posts{
 //                post.setValue(with: post)
 //                if let title = post.value(forKey: "title") as? String{
@@ -136,15 +159,4 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         
     }
     
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
