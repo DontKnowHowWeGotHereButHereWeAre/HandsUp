@@ -47,11 +47,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func didTapQuestions(_ sender: Any) {
         mode = 1
-        tableview.reloadData()
+        self.fetchThisObject("Post")
     }
     @IBAction func didTapResponses(_ sender: Any) {
         mode = 2
-        tableview.reloadData()
+        self.fetchThisObject("Answer")
     }
     @IBAction func didTapRaises(_ sender: Any) {
         mode = 3
@@ -75,7 +75,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         case 3:
             //case 3
             let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell") as!  QuestionDetailCell
-//            cell.setValues(question: questionRaises?[indexPath.row])
+            cell.setValues(question: questionRaises?[indexPath.row])
             return cell
         case 2:
             //case 2
@@ -127,33 +127,57 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         query.limit = 20
         
         //fetch stuff
-        
-        query.findObjectsInBackground { (fetchedObjects, error) in
-            if let fetchedObjects = fetchedObjects as? [Post] {
-                self.questions = fetchedObjects
-            } else if let error = error {
-                print("Error 2 in fetchThisObject: \(error.localizedDescription)")
+        if(classObject == "Post"){      //If user is searching for Questions
+            query.findObjectsInBackground { (fetchedObjects, error) in
+                if let fetchedObjects = fetchedObjects as? [Post] {
+                    self.questions = fetchedObjects
+                } else if let error = error {
+                    print("Error 2 in fetchThisObject: \(error.localizedDescription)")
+                }
+                self.tableview.reloadData()
             }
-            self.tableview.reloadData()
         }
+        
+        else if(classObject == "Answer"){       //If user is searching for his/her answers.
+            query.findObjectsInBackground { (fetchedObjects, error) in
+                if let fetchedObjects = fetchedObjects as? [Answer] {
+                    self.responses = fetchedObjects
+                } else if let error = error {
+                    print("Error 2 in fetchThisObject: \(error.localizedDescription)")
+                }
+                self.tableview.reloadData()
+            }
+        }
+        
+        //QUERY FOR RAISES BY THE USER
+        else if(classObject == "User"){
+            query.findObjectsInBackground { (fetchedObjects, error) in
+                if let fetchedObjects = fetchedObjects as? [Answer] {
+                    self.responses = fetchedObjects
+                } else if let error = error {
+                    print("Error 2 in fetchThisObject: \(error.localizedDescription)")
+                }
+                self.tableview.reloadData()
+            }
+            
+        }
+        
+        
     }
     
+    //TODO: FINISH RAISE TABLE
     func fetchCurrentUserInfo(){
         
         print(user?.username ?? "no username")
         print (user?["postsLiked"] ?? "no postsLiked")
         
-        if let posts = user?.object(forKey: "postsLiked") as? [PFObject]{
-            for post in posts{
-//                post.setValue(with: post)
-//                if let title = post.value(forKey: "title") as? String{
-//                    print(title)
-//                }
-                print(post)
-            }
-//            questionRaises = posts
-            print(posts)
+        
+        guard let post = user?.object(forKey: "postsLiked") as? [Post] else{
+            print("Error 1 in fetchCurrentUserInfo Method")
+            return
         }
+        
+        self.questionRaises = post
         
         tableview.reloadData()
         

@@ -129,8 +129,8 @@
 				490D440D217B8088008E328B /* HomeViewController.swift */,
 				49EEBB6C217C121900215DCF /* QuestionDetailViewController.swift */,
 				498D3091217B941100D33BCA /* NewPostViewController.swift */,
-				498D308F217B92E900D33BCA /* ProfileViewController.swift */,
 				49A509B6217EAA39005D62F7 /* ResponseViewController.swift */,
+				498D308F217B92E900D33BCA /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
