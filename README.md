@@ -10,9 +10,9 @@ The following **required** functionality is completed:
 - [x] User can log in and sign up
 - [x] User can annonomously post question by creating a new thread
 - [x] User can view question details 
-- [ ] User can post answer to question by responding to thread
-- [ ] User can view their questions and answers (view their threads)
-- [ ] User can view their class threads
+- [x] User can post answer to question by responding to thread
+- [x] User can view their questions and answers (view their threads)
+- [x] User can view their class threads
 
 The following **stretch** features are implemented:
 
@@ -43,7 +43,7 @@ Profile and Compose Question Views:
 Here's a current walkthrough of implemented user stories:
 
 <img src='https://i.imgur.com/9UsHtBf.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
+<img src='https://i.imgur.com/HjiYIzJ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
