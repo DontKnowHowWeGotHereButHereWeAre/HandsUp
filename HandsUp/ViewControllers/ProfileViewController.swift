@@ -157,8 +157,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
             print("Error 1 in fetchPostsLiked Method")
             return
         }
-        let postID = postIDs[4]
-        print(postID.objectId as! String)
+        let postID = postIDs[4] //Testing if the dictionary has correct ID's
+        print(postID.objectId!)
         query.whereKeyExists(postID.objectId!)
         
         //This query only finds one object, so we only need to append the one that was found
