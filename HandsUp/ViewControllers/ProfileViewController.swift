@@ -13,7 +13,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     var user: PFUser?
     var questions: [Post]?
     var responses: [Answer]?
-    var questionRaises: [Post]?
+    var questionRaises: [Post] = []
     var answerRaises: [Answer]?
     
     var mode: Int = 1 //true for Post mode, false for Answer mode
@@ -59,7 +59,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch mode {
         case 3:
-            return questionRaises?.count ?? 0
+            return questionRaises.count
         case 2:
             return responses?.count ?? 0
         default:
@@ -73,7 +73,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         case 3:
             //case 3
             let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell") as!  QuestionDetailCell
-            cell.setValues(question: questionRaises?[indexPath.row])
+            cell.setValues(question: questionRaises[indexPath.row])
             return cell
         case 2:
             //case 2
@@ -149,57 +149,54 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
      In order to get the entire post, we need to query for each of those ID's.
      This will take O(n) time, and this feels like a sin to be okay with.
  */
-    
+
     func fetchPostsLiked(){
-        let query = PFQuery(className: "Post")
+        
+        
         
         guard let postIDs = user?.object(forKey: "postsLiked") as? [PFObject] else{
             print("Error 1 in fetchPostsLiked Method")
             return
         }
-        let postID = postIDs[4] //Testing if the dictionary has correct ID's
-        print(postID.objectId!)
-        query.whereKeyExists(postID.objectId!)
+        
+        var queryCount = 0
+        for post in postIDs{
+            let postID = post.objectId //Testing if the dictionary has correct ID's
+            let query = PFQuery(className: "Post")
+            queryCount += 1
+            query.getObjectInBackground(withId: postID!) { (object, error) in
+                self.questionRaises.append(object as! Post)
+                queryCount -= 1
+                if queryCount == 0 {
+                    print("Reloaded TableView data")
+                    self.questionRaises.sort(by: { (left, right) -> Bool in
+                        guard let leftCreated = left.createdAt, let rightCreated = right.createdAt else {
+                            return false
+                        }
+                        return leftCreated > rightCreated
+                    })
+                    self.tableview.reloadData()
+                }
+            }
+//            do{
+//                try self.questionRaises?.append(query.getObjectWithId(postID!) as! Post)
+//                try query.getObjectWithId(postID!)
+            
+//            }catch{
+//                print(error.localizedDescription)
+//                return  //If an error occurs, the function will kick out.
+//            }
+        }
+
         
         //This query only finds one object, so we only need to append the one that was found
         //to the questionRaises array
         
         //NOTE: Some IDs that were being queried did not exist in the database.
         //postIDs[4] for Nikhil shows in PostDB but nothing was fetched.
-        query.findObjectsInBackground { (raised_posts: [PFObject]?, error: Error?) in
-            if let raised_posts = raised_posts{
-                self.questionRaises = raised_posts as? [Post]
-            }
-            else{
-                if let error = error{
-                    print("Error 2 occurred in fetchPostsLiked Method: \(error.localizedDescription)")
-                }
-            }
-            print(self.questionRaises?.isEmpty)
-            self.tableview.reloadData()
-        }
+
         
         
-        
-//        for postID in postIDs{ //Queries for each postID that the user has liked.
-//
-//            query.whereKeyExists(postID.objectId!)
-//
-//            //This query only finds one object, so we only need to append the one that was found
-//            //to the questionRaises array
-//            query.findObjectsInBackground { (raised_posts: [PFObject]?, error: Error?) in
-//                if let raised_posts = raised_posts{
-//                    self.questionRaises = raised_posts as? [Post]
-//                }
-//                else{
-//                    if let error = error{
-//                        print("Error 2 occurred in fetchPostsLiked Method: \(error.localizedDescription)")
-//                    }
-//                }
-//                self.tableview.reloadData()
-//            }
-//
-//        }
         
     }
     
