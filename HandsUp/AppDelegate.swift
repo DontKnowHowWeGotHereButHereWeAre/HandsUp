@@ -43,23 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "TabBarController")
         }
         
-        // MARK: - TESTING
-        
-        let query = PFQuery(className: "Post")
-        
-        let postID = "xLGKLbYmPN"
-        //        query.includeKey("_id")
-//        query.whereKey("id", equalTo: postID)
-        do {
-            try query.getObjectWithId(postID)
-            query.findObjectsInBackground { (raised_posts: [PFObject]?, error: Error?) in
-                print(raised_posts as Any)
-                print("Error: \(error)")
-            }
-        } catch {
-            print(error)
-        }
-        
         return true
     }
 

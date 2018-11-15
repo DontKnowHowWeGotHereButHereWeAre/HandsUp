@@ -53,7 +53,13 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     }
     @IBAction func didTapRaises(_ sender: Any) {
         mode = 3
-        fetchPostsLiked()
+        
+        if(!self.questionRaises.isEmpty){   //If the array has stuff...
+                                            // Remove entities before appending.
+            self.questionRaises.removeAll()
+        }
+        
+        fetchPostsRaised()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -140,31 +146,25 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         
     }
     
-    //TODO: FINISH RAISE TABLE
-    /*
-     WHY THIS DOES NOT WORK:
-     The guard let statement does in fact fetch the right posts,
-     but does not fetch the entire post. It only fetched the postID's.
-     
-     In order to get the entire post, we need to query for each of those ID's.
-     This will take O(n) time, and this feels like a sin to be okay with.
- */
 
-    func fetchPostsLiked(){
-        
+    func fetchPostsRaised(){ //Fetches data of what the user raised hands for.
+                            // The database calls 'raises' as 'likes.'
         
         
         guard let postIDs = user?.object(forKey: "postsLiked") as? [PFObject] else{
-            print("Error 1 in fetchPostsLiked Method")
+            print("Error 1 in fetchPostsRaised Method")
             return
         }
         
         var queryCount = 0
         for post in postIDs{
-            let postID = post.objectId //Testing if the dictionary has correct ID's
+            let postID = post.objectId
             let query = PFQuery(className: "Post")
             queryCount += 1
+            
+            //MARK: Query Fetches Raises & Appends to Array
             query.getObjectInBackground(withId: postID!) { (object, error) in
+                
                 self.questionRaises.append(object as! Post)
                 queryCount -= 1
                 if queryCount == 0 {
@@ -178,26 +178,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
                     self.tableview.reloadData()
                 }
             }
-//            do{
-//                try self.questionRaises?.append(query.getObjectWithId(postID!) as! Post)
-//                try query.getObjectWithId(postID!)
-            
-//            }catch{
-//                print(error.localizedDescription)
-//                return  //If an error occurs, the function will kick out.
-//            }
         }
-
-        
-        //This query only finds one object, so we only need to append the one that was found
-        //to the questionRaises array
-        
-        //NOTE: Some IDs that were being queried did not exist in the database.
-        //postIDs[4] for Nikhil shows in PostDB but nothing was fetched.
-
-        
-        
         
     }
-    
 }
