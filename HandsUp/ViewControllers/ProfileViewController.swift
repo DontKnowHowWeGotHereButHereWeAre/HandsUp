@@ -181,4 +181,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         }
         
     }
+    
+    
+    //TODO: WHEN USER TAPS A QUESTION, SEGUE TO THE QUESTION DETAIL.
+    
 }

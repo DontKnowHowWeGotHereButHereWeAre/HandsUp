@@ -28,7 +28,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.TitleLabel.text = post.title
         cell.authorLabel.text = post.authorName
         cell.dateLabel.text = " · " + post.dateCreated
-        cell.TopAnswerLabel.text = "Be the first to answer this question to get a free milkshake!"
+        cell.questionDetailLabel.text = String(post.question)
         cell.RaisesCountLabel.text = "🤚" + String(post.likesCount)
         cell.CommentsCountLabel.text = "💬" + String(post.commentsCount)
     

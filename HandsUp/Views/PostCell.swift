@@ -12,7 +12,7 @@ class PostCell: UITableViewCell {
 
     
     @IBOutlet weak var TitleLabel: UILabel!
-    @IBOutlet weak var TopAnswerLabel: UILabel!
+    @IBOutlet weak var questionDetailLabel: UILabel!
     @IBOutlet weak var RaisesCountLabel: UILabel!
     @IBOutlet weak var CommentsCountLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
