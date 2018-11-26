@@ -28,7 +28,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         usernameLabel.text = user?.username ?? "Anonymous werewolf 🐺"
         
         tableview.dataSource = self
-        // Do any additional setup after loading the view.
+        fetchThisObject("Post")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
